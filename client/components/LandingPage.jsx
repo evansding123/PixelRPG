@@ -1,12 +1,16 @@
 import React from 'react';
-
+import {ThemeContext} from './App.jsx';
 
 
 const LandingPage = (props) =>{
+
+  const contextType = React.useContext(ThemeContext);
+
+
   return(
-    <div>this is the landing page</div>
+   <div>{contextType}</div>
   );
 }
 
-
+// LandingPage.contextType = ThemeContext;
 export default LandingPage;

@@ -9,7 +9,10 @@ import {
 import Summon from './Summon.jsx';
 import LandingPage from './LandingPage.jsx';
 
+export const ThemeContext = React.createContext('light');
+
 const App = (props) => {
+
 
 const history = useHistory();
 
@@ -22,7 +25,9 @@ return (
     </div>
     <Switch>
       <Route exact path="/">
-        <LandingPage />
+        <ThemeContext.Provider value = 'dark'>
+          <LandingPage />
+        </ThemeContext.Provider>
       </Route>
       <Route path = '/summon'>
         <Summon />

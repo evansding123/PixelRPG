@@ -12,7 +12,7 @@ const Hero = (props) => {
 
 
   let heroObject = {
-    0: 'something.svg',
+    0: 'something.svg', //can probably put a react component for each individual hero. maybe reuse? use character component
     1: '1.svg',
     2: '2.svg',
     3: '3.svg',
