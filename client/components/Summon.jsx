@@ -13,8 +13,18 @@ const PagePos = styled.div`
 const SummonButton = styled.button`
   font-size: 1.5em;
   text-align: center;
-  color: palevioletred;
+  color: white;
   cursor: pointer;
+  background-color: black;
+  width: 25%;
+  position: absolute;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 200px;
+  text-align: center;
 `;
 
 

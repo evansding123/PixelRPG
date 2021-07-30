@@ -15,23 +15,37 @@ const Pic = styled.img`
   height: 10%;
   overflow: hidden;
   margin: auto;
-  padding-left: 3%;
+
 
 `;
 
-const HealthBar = styled.div`
+const Name = styled.div`
   margin: auto;
+
 `;
 
 
 const IndividualCharacter = (props) => {
+
+
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    setData(data => {
+      for(var keys in props) {
+        data[keys] = props[keys];
+      }
+      return data;
+    });
+
+  })
 
   return(
     <Frame>
       <div>{props.index}</div>
       <Pic src = {props.picture} alt = 'character'></Pic>
       <br></br>
-      <HealthBar>Health {props.health}</HealthBar>
+      <Name>{props.name}</Name>
     </Frame>
   )
 
