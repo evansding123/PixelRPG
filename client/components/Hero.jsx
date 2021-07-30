@@ -7,12 +7,20 @@ import alpha from '../pictures/alpha.png';
 const Hero = (props) => {
 
   const [hero, setHero] = useState(0);
+  const [heroList, generateList] = useState({});
 
   useEffect(() => {
-    setHero(props.number)
+    setHero(props.number);
+
   })
 
+  useEffect(() => {
+    generateList(heroObject);
+  }, [])
 
+
+
+  //should i store this as another jsx file?
   let heroObject = {
     0: 'something.svg', //can probably put a react component for each individual hero. maybe reuse? use character component
     1: <IndividualCharacter
@@ -21,12 +29,12 @@ const Hero = (props) => {
         index = {1}
       />,
     2: <IndividualCharacter
-        health = {10}
+        health = {20} //these numbers can be random, within a range
         picture = {alpha}
         index = {2}
       />,
     3: <IndividualCharacter
-        health = {10}
+        health = {30}
         picture = {alpha}
         index = {3}
       />,
@@ -57,7 +65,7 @@ const Hero = (props) => {
   // }
 
   return(
-    <div>{heroObject[hero]}</div>
+    <div>{heroList[hero]}</div>
   )
 
 

@@ -4,9 +4,10 @@ import styled from 'styled-components';
 
 
 
-const Portrait = styled.div`
+const Frame = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
 `;
 
 const Pic = styled.img`
@@ -14,20 +15,27 @@ const Pic = styled.img`
   height: 10%;
   overflow: hidden;
   margin: auto;
+  padding-left: 3%;
 
+`;
+
+const HealthBar = styled.div`
+  margin: auto;
 `;
 
 
 const IndividualCharacter = (props) => {
 
   return(
-    <Portrait>
+    <Frame>
       <div>{props.index}</div>
       <Pic src = {props.picture} alt = 'character'></Pic>
-      <div>{props.health}</div>
-    </Portrait>
+      <br></br>
+      <HealthBar>Health {props.health}</HealthBar>
+    </Frame>
   )
 
+  //might need to add a pop up modal that shows the right stuff
 
 
 }
