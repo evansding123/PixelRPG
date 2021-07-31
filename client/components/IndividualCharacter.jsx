@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import PopUpInfo from './PopUpInfo.jsx';
+
+
 
 
 
@@ -15,20 +18,21 @@ const Pic = styled.img`
   height: 10%;
   overflow: hidden;
   margin: auto;
-
+  cursor: pointer;
 
 `;
 
-const Name = styled.div`
+export const Name = styled.h4`
   margin: auto;
 
 `;
 
-
+//meed to learn redux late to store global state
 const IndividualCharacter = (props) => {
 
 
   const [data, setData] = useState({});
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     setData(data => {
@@ -40,13 +44,39 @@ const IndividualCharacter = (props) => {
 
   })
 
+
+  const openModal = () => {
+    setIsOpen(true);
+  }
+
+  const closeModal = (closed) => {
+    setIsOpen(closed);
+  }
+
+  const {name, health, range, attack, defense, speed} = props;
+
+  let infoBox = modalIsOpen ? <PopUpInfo
+    name = {name}
+    health = {health}
+    range = {range}
+    attack = {attack}
+    defense = {defense}
+    speed = {speed}
+    callback = {closeModal}
+  />
+   : <div></div>;
+
+
   return(
-    <Frame>
-      <div>{props.index}</div>
-      <Pic src = {props.picture} alt = 'character'></Pic>
-      <br></br>
-      <Name>{props.name}</Name>
-    </Frame>
+    <div>
+      <Frame>
+        {/* <div>{props.index}</div> */}
+        <Pic onClick = {openModal} src = {props.picture} alt = 'character'></Pic>
+        <br></br>
+        <Name>{props.name}</Name>
+      </Frame>
+      {infoBox}
+     </div>
   )
 
   //might need to add a pop up modal that shows the right stuff

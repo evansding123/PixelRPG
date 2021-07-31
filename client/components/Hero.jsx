@@ -33,6 +33,9 @@ const Hero = (props) => {
         name = 'Stickman'
         index = {1}
         range  = {1}
+        attack = {5}
+        defense = {5}
+        speed = {10}
 
       />,
     2: <IndividualCharacter
@@ -41,6 +44,9 @@ const Hero = (props) => {
         name = 'Knight'
         index = {2}
         range  = {1}
+        attack = {5}
+        defense = {5}
+        speed = {10}
       />,
     3: <IndividualCharacter
         health = {30}
@@ -48,24 +54,39 @@ const Hero = (props) => {
         name = 'Archer'
         index = {3}
         range  = {2}
+        attack = {5}
+        defense = {5}
+        speed = {10}
       />,
     4: <IndividualCharacter
         health = {10}
         picture = {alzy}
         name = 'Alzy'
         index = {4}
+        range  = {1}
+        attack = {5}
+        defense = {5}
+        speed = {10}
       />,
     5: <IndividualCharacter
         health = {10}
         picture = {cyclops}
         name = 'Cyclops'
         index = {5}
+        range  = {1}
+        attack = {5}
+        defense = {5}
+        speed = {10}
       />,
     6: <IndividualCharacter
         health = {10}
         picture = {archer}
         name = 'Something'
         index = {6}
+        range  = {1}
+        attack = {5}
+        defense = {5}
+        speed = {10}
       />,
     7: '7.svg',
     8: '8.svg',

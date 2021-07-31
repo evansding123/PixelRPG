@@ -7,6 +7,7 @@ import Hero from './Hero.jsx';
 const PagePos = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 100px;
 `;
 
 
@@ -23,9 +24,13 @@ const SummonButton = styled.button`
   margin-right: auto;
   left: 0;
   right: 0;
-  top: 200px;
+  top: 310px;
   text-align: center;
+  font-family: 'VT323', monospace;
+
 `;
+
+
 
 
 const Summon = (props) => {

@@ -6,23 +6,32 @@ import {
   Link,
   useHistory
 } from "react-router-dom";
+
+import styled from 'styled-components';
 import Summon from './Summon.jsx';
 import LandingPage from './LandingPage.jsx';
 
 export const ThemeContext = React.createContext('light');
 
+const NavBar = styled.div`
+  display: flex;
+  > a {
+    margin-right: 6px;
+  }
+`;
+
 const App = (props) => {
 
 
-const history = useHistory();
+//const history = useHistory();
 
 return (
   <div>
   <Router>
-    <div>
+    <NavBar>
         <Link to ='/'>Home</Link>
         <Link to ='/summon'>Summon</Link>
-    </div>
+    </NavBar>
     <Switch>
       <Route exact path="/">
         <ThemeContext.Provider value = 'dark'>
