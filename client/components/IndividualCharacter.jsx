@@ -49,6 +49,9 @@ const IndividualCharacter = (props) => {
 
   const [data, setData] = useState({});
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [exp, gainExp] = useState(0); // on useEffect, I can fetch the exp and level from the database
+
+  //if exp is greater than a certain amount, i can increase level
 
   useEffect(() => {
     setData(data => {
@@ -57,6 +60,8 @@ const IndividualCharacter = (props) => {
       }
       return data;
     });
+
+
 
   })
 

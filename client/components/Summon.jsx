@@ -7,8 +7,8 @@ import SummonPic from '../pictures/SummonPic.gif';
 
 const Pic = styled.img`
 
-
-  min-height: 20vh;
+  max-height:40vh;
+  min-height: 15vh;
   min-width: 15%;
 
   overflow: hidden;
@@ -37,7 +37,7 @@ const SummonButton = styled.button`
   margin-right: auto;
   left: 0;
   right: 0;
-  top: 60%;
+  top:55%;
   text-align: center;
   font-family: 'VT323', monospace;
 

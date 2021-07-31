@@ -32,8 +32,10 @@ const Hero = (props) => {
 
   //maybe its better to use an array for this
   let heroObject = {
-    0: '', //can probably put a react component for each individual hero. maybe reuse? use character component
+    0: '',
     1: <IndividualCharacter
+        level = {1}
+        exp = {0}
         health = {10}
         picture = {stickman}
         name = 'Stickman'
