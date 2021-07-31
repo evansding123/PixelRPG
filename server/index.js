@@ -8,7 +8,6 @@ app.use(express.static('./dist'));
 
 
 app.get('/summoned', (req, res) => {
-
     res.sendStatus(200);
 
 })

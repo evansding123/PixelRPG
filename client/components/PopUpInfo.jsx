@@ -1,33 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Modal from 'react-modal';
-import {Name} from './IndividualCharacter.jsx';
+import {Name} from '../styles/styles.jsx';
 
 Modal.setAppElement('#app');
 
-const customStyles = {
-  overlay: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(100, 100, 100, 0.75)'
-  },
-  content: {
-    top: '25%',
-    left: '70%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    padding: '40px',
-  },
-};
+
 
 
 
 const PopUpInfo = (props) => {
+
+  const customStyles = {
+    overlay: {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(100, 100, 100, 0.75)'
+    },
+    content: {
+      top: '25%',
+      left: '65%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      padding: '40px',
+      backgroundColor: `${props.color}`
+    },
+  };
 
   const [modalIsOpen, setIsOpen] = useState(true);
 

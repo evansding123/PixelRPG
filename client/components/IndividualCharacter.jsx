@@ -10,25 +10,41 @@ import PopUpInfo from './PopUpInfo.jsx';
 const Frame = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-`;
-
-const Pic = styled.img`
-  width: 10%;
-  height: 10%;
-  overflow: hidden;
-  margin: auto;
-  cursor: pointer;
+  justify-content: space-between;
+  align-items: center;
 
 `;
+
+
 
 export const Name = styled.h4`
   margin: auto;
+  top: 45%;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
 
 `;
 
 //meed to learn redux late to store global state
 const IndividualCharacter = (props) => {
+
+  const Pic = styled.img`
+
+  position: relative;
+  margin: auto;
+  height: ${props.height};
+  width: ${props.width};
+  margin-top: 10%;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+`;
 
 
   const [data, setData] = useState({});
@@ -53,9 +69,10 @@ const IndividualCharacter = (props) => {
     setIsOpen(closed);
   }
 
-  const {name, health, range, attack, defense, speed} = props;
+  const {color, name, health, range, attack, defense, speed} = props;
 
   let infoBox = modalIsOpen ? <PopUpInfo
+    color = {color}
     name = {name}
     health = {health}
     range = {range}
@@ -73,7 +90,7 @@ const IndividualCharacter = (props) => {
         {/* <div>{props.index}</div> */}
         <Pic onClick = {openModal} src = {props.picture} alt = 'character'></Pic>
         <br></br>
-        <Name>{props.name}</Name>
+        {/* <Name>{props.name}</Name> */}
       </Frame>
       {infoBox}
      </div>

@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import IndividualCharacter from './IndividualCharacter.jsx';
-import alpha from '../pictures/alpha.png';
+//import alpha from '../pictures/alpha.png';
 import stickman from '../pictures/stickman.jpeg';
 import knight from '../pictures/knight.png'
 import archer from '../pictures/archer.png'
 import alzy from '../pictures/alzy.png'
 import cyclops from '../pictures/cyclops.png'
+import demon from '../pictures/demon.gif'
+import priest from '../pictures/priest.png'
+import vampire from '../pictures/vampire.png'
+import mysteriousMan from '../pictures/mysteriousman.png'
+
+
 
 const Hero = (props) => {
 
@@ -36,7 +42,8 @@ const Hero = (props) => {
         attack = {5}
         defense = {5}
         speed = {10}
-
+        width = '10%'
+        height = '10vh'
       />,
     2: <IndividualCharacter
         health = {20} //these numbers can be random, within a range
@@ -47,6 +54,8 @@ const Hero = (props) => {
         attack = {5}
         defense = {5}
         speed = {10}
+        color = '#FFFF0080'
+
       />,
     3: <IndividualCharacter
         health = {30}
@@ -57,6 +66,8 @@ const Hero = (props) => {
         attack = {5}
         defense = {5}
         speed = {10}
+        color =  '#CC660080'
+
       />,
     4: <IndividualCharacter
         health = {10}
@@ -67,6 +78,9 @@ const Hero = (props) => {
         attack = {5}
         defense = {5}
         speed = {10}
+        color =  '#CC660080'
+
+
       />,
     5: <IndividualCharacter
         health = {10}
@@ -77,22 +91,43 @@ const Hero = (props) => {
         attack = {5}
         defense = {5}
         speed = {10}
+        color = '#00CCCC80'
+
       />,
     6: <IndividualCharacter
         health = {10}
-        picture = {archer}
-        name = 'Something'
+        picture = {mysteriousMan}
+        name = 'Mysterious Man'
         index = {6}
         range  = {1}
         attack = {5}
         defense = {5}
         speed = {10}
-      />,
-    7: '7.svg',
-    8: '8.svg',
-    9: '9.svg',
-    10: '10.svg'
+        color =  '#7F00FF80'
 
+      />,
+    7: <IndividualCharacter
+          health = {10}
+          picture = {priest}
+          name = 'Priest'
+          index = {6}
+          range  = {1}
+          attack = {5}
+          defense = {5}
+          speed = {10}
+          color =  '#FFFF0080'
+      />,
+    8: <IndividualCharacter
+        health = {10}
+        picture = {vampire}
+        name = 'Vampire'
+        index = {6}
+        range  = {1}
+        attack = {5}
+        defense = {5}
+        speed = {10}
+        color =  '#9933FF80'
+    />,
   }
 
   // if(props.number === 1) {
