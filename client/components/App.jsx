@@ -10,6 +10,7 @@ import {
 import styled from 'styled-components';
 import Summon from './Summon.jsx';
 import LandingPage from './LandingPage.jsx';
+import Team from './Team.jsx';
 
 export const ThemeContext = React.createContext('light');
 
@@ -31,6 +32,7 @@ return (
     <NavBar>
         <Link to ='/'>Home</Link>
         <Link to ='/summon'>Summon</Link>
+        <Link to = '/team'>Teams</Link>
     </NavBar>
     <Switch>
       <Route exact path="/">
@@ -40,6 +42,9 @@ return (
       </Route>
       <Route path = '/summon'>
         <Summon />
+      </Route>
+      <Route path = '/team'>
+        <Team/>
       </Route>
     </Switch>
   </Router>

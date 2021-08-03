@@ -68,8 +68,9 @@ const IndividualCharacter = (props) => {
           attack: attack,
           defense: defense,
           speed: speed,
-          intial: false,
-          color: color
+          intial: initial,
+          color: color,
+          username: "evansding" //replace with actual username later
         })
         console.log(response);
       } catch(error) {
