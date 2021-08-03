@@ -30,12 +30,10 @@ const Team = (props) => {
     return(
       <div>
         {character.map((item) => {
-          for(var keys in item) {
-            descriptionArray.push(keys + ' = ' + `{${item[keys]}} `);
-          }
-
-          // var description = JSON.parse(descriptionArray);
-          return <IndividualCharacter {...descriptionArray}/>
+          item.width = '50px';
+          item.height = '50px';
+          item.margin = '5%';
+          return <IndividualCharacter values = {item}/> //need to add a description, can i reuse the modal? probably just make a new one
         })}
       </div>
     )

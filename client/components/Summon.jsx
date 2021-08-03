@@ -57,7 +57,7 @@ const Summon = (props) => {
   const handleClick = () => {
 
     createHero(Math.round(Math.random() * 7) + 1);
-
+    //createHero(1);
     // addCount(count + 1);
     // createHero(count);
     setClick(false);
