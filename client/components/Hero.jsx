@@ -35,6 +35,8 @@ const Hero = (props) => {
     0: '',
     1: <IndividualCharacter
         level = {1}
+        exp = {0}
+        mana = {5}
         health = {10}
         picture = {stickman}
         name = 'Stickman'
@@ -48,6 +50,10 @@ const Hero = (props) => {
         initial = {true}
       />,
     2: <IndividualCharacter
+
+        level = {1}
+        exp = {0}
+        mana = {5}
         health = {20} //these numbers can be random, within a range
         picture = {knight}
         name = 'Knight'
@@ -61,6 +67,9 @@ const Hero = (props) => {
       />,
     3: <IndividualCharacter
         health = {30}
+        level = {1}
+        exp = {0}
+        mana = {5}
         picture = {archer}
         name = 'Archer'
         index = {3}
@@ -74,6 +83,9 @@ const Hero = (props) => {
       />,
     4: <IndividualCharacter
         health = {10}
+        level = {1}
+        exp = {0}
+        mana = {5}
         picture = {alzy}
         name = 'Alzy'
         index = {4}
@@ -88,6 +100,9 @@ const Hero = (props) => {
       />,
     5: <IndividualCharacter
         health = {10}
+        level = {1}
+        exp = {0}
+        mana = {5}
         picture = {cyclops}
         name = 'Cyclops'
         index = {5}
@@ -101,6 +116,9 @@ const Hero = (props) => {
       />,
     6: <IndividualCharacter
         health = {10}
+        level = {1}
+        exp = {0}
+        mana = {5}
         picture = {mysteriousMan}
         name = 'Mysterious Man'
         index = {6}
@@ -114,6 +132,9 @@ const Hero = (props) => {
       />,
     7: <IndividualCharacter
           health = {10}
+          level = {1}
+          exp = {0}
+          mana = {5}
           picture = {priest}
           name = 'Priest'
           index = {6}
@@ -126,6 +147,9 @@ const Hero = (props) => {
       />,
     8: <IndividualCharacter
         health = {10}
+        level = {1}
+        exp = {0}
+        mana = {5}
         picture = {vampire}
         name = 'Vampire'
         index = {6}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import PopUpInfo from './PopUpInfo.jsx';
+import axios from 'axios';
 
 
 
@@ -39,9 +40,7 @@ const IndividualCharacter = (props) => {
   height: ${props.height};
   width: ${props.width};
   margin-top: 10%;
-
   overflow: hidden;
-
   cursor: pointer;
 
 `;
@@ -49,20 +48,41 @@ const IndividualCharacter = (props) => {
 
   const [data, setData] = useState({});
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [exp, gainExp] = useState(0); // on useEffect, I can fetch the exp and level from the database
+  // const [exp, gainExp] = useState(0); // on useEffect, I can fetch the exp and level from the database
 
   //if exp is greater than a certain amount, i can increase level
 
-  useEffect(() => {
-    setData(data => {
-      for(var keys in props) {
-        data[keys] = props[keys];
+  //if initial, post the data. if not, get the data from the database
+  const {color, level, exp, name, health, mana, picture, range, attack, defense, speed, initial} = props;
+
+  useEffect(async () => {
+    if(props.initial === true) {
+      try {
+        const response = await axios.post('/characters', {
+          level: level,
+          exp: exp,
+          health: health,
+          mana: mana,
+          picture: picture,
+          name: name,
+          attack: attack,
+          defense: defense,
+          speed: speed,
+          intial: false,
+          color: color
+        })
+        console.log(response);
+      } catch(error) {
+        console.log(error);
       }
-      return data;
-    });
-
-
-
+    } else {
+      setData(data => {
+        for(var keys in props) {
+          data[keys] = props[keys];
+        }
+        return data;
+      });
+    }
   })
 
 
@@ -74,7 +94,7 @@ const IndividualCharacter = (props) => {
     setIsOpen(closed);
   }
 
-  const {color, name, health, range, attack, defense, speed, initial} = props;
+
 
   let infoBox = modalIsOpen ? <PopUpInfo
     color = {color}

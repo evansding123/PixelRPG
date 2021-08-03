@@ -14,17 +14,17 @@ CREATE TABLE Account (
 CREATE TABLE individual_character (
  id serial PRIMARY KEY,
  level SMALLINT,
+ exp INTEGER,
  health INTEGER,
+ mana INTEGER,
  picture VARCHAR,
- name VARCHAR UNIQUE,
+ name VARCHAR, --need to add unique later,
  attack INTEGER,
  defense INTEGER,
  speed INTEGER,
  initial BOOLEAN,
  color VARCHAR,
  id_Account INTEGER,
- exp INTEGER,
- mana INTEGER,
  height INTEGER,
  width INTEGER
 );

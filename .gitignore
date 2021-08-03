@@ -4,3 +4,4 @@ package-lock.json
 node_modules
 /dist/bundle.js
 /dist/public/icons
+config.js

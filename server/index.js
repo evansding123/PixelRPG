@@ -2,15 +2,13 @@ const express = require('express')
 const path = require('path')
 const app = express()
 const port = 3005
+const router = require('./routes.js');
 
 app.use(express.json());
 app.use(express.static('./dist'));
 
 
-app.get('/summoned', (req, res) => {
-    res.sendStatus(200);
-
-})
+app.use('/', router);
 
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, '../dist/index.html'), function(err) {
@@ -25,3 +23,5 @@ app.get('/*', function(req, res) {
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
+
+module.exports = app;

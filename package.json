@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --config ./webpack.config.js -w",
     "start": "nodemon ./server/index.js",
-    "seed" : "psql -U evansding -d my_rpg -f schema.sql"
+    "seed": "psql -U evansding -d my_rpg -f schema.sql"
   },
   "repository": {
     "type": "git",
@@ -22,10 +22,12 @@
   "homepage": "https://github.com/evansding123/First_Project#readme",
   "dependencies": {
     "@babel/core": "^7.14.8",
+    "axios": "^0.21.1",
     "babel-cli": "^6.26.0",
     "babel-preset-react-app": "^3.1.2",
     "express": "^4.17.1",
     "nodemon": "^2.0.12",
+    "pg": "^8.7.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-modal": "^3.14.3",
