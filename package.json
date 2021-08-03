@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --config ./webpack.config.js -w",
-    "start": "nodemon ./server/index.js"
+    "start": "nodemon ./server/index.js",
+    "seed" : "psql -U evansding -d my_rpg -f schema.sql"
   },
   "repository": {
     "type": "git",

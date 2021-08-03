@@ -74,7 +74,7 @@ const IndividualCharacter = (props) => {
     setIsOpen(closed);
   }
 
-  const {color, name, health, range, attack, defense, speed} = props;
+  const {color, name, health, range, attack, defense, speed, initial} = props;
 
   let infoBox = modalIsOpen ? <PopUpInfo
     color = {color}
@@ -84,6 +84,7 @@ const IndividualCharacter = (props) => {
     attack = {attack}
     defense = {defense}
     speed = {speed}
+    initial = {initial}
     callback = {closeModal}
   />
    : <div></div>;

@@ -35,7 +35,6 @@ const Hero = (props) => {
     0: '',
     1: <IndividualCharacter
         level = {1}
-        exp = {0}
         health = {10}
         picture = {stickman}
         name = 'Stickman'
@@ -46,6 +45,7 @@ const Hero = (props) => {
         speed = {10}
         width = '10%'
         height = '10vh'
+        initial = {true}
       />,
     2: <IndividualCharacter
         health = {20} //these numbers can be random, within a range
@@ -57,7 +57,7 @@ const Hero = (props) => {
         defense = {5}
         speed = {10}
         color = '#FFFF0080'
-
+        initial = {true}
       />,
     3: <IndividualCharacter
         health = {30}
@@ -69,6 +69,7 @@ const Hero = (props) => {
         defense = {5}
         speed = {10}
         color =  '#CC660080'
+        initial = {true}
 
       />,
     4: <IndividualCharacter
@@ -81,6 +82,7 @@ const Hero = (props) => {
         defense = {5}
         speed = {10}
         color =  '#CC660080'
+        initial = {true}
 
 
       />,
@@ -94,6 +96,7 @@ const Hero = (props) => {
         defense = {5}
         speed = {10}
         color = '#00CCCC80'
+        initial = {true}
 
       />,
     6: <IndividualCharacter
@@ -106,6 +109,7 @@ const Hero = (props) => {
         defense = {5}
         speed = {10}
         color =  '#7F00FF80'
+        initial = {true}
 
       />,
     7: <IndividualCharacter
@@ -118,6 +122,7 @@ const Hero = (props) => {
           defense = {5}
           speed = {10}
           color =  '#FFFF0080'
+          initial = {true}
       />,
     8: <IndividualCharacter
         health = {10}
@@ -129,6 +134,7 @@ const Hero = (props) => {
         defense = {5}
         speed = {10}
         color =  '#9933FF80'
+        initial = {true}
     />,
   }
 
