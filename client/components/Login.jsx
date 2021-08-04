@@ -9,32 +9,30 @@ import { Link, useHistory } from 'react-router-dom';
 
 
 
+const Login = (props) =>{
 
-const LandingPage = (props) =>{
-
-  const contextType = React.useContext(ThemeContext);
+  //const contextType = React.useContext(ThemeContext);
   const emailRef = useRef();
   const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
+  const { login } = useAuth();
+
 
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const {signup, currentUser} = useAuth();
   const history = useHistory();
+
 
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if(passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setError('Passwords do not match');
-    }
+
     try {
       setError('')
       setLoading(true)
-      await signup(emailRef.current.value, passwordRef.current.value)
+      await login(emailRef.current.value, passwordRef.current.value)
       history.push('/')
     } catch {
-      setError('Failed to create an account');
+      setError('Failed to log in');
     }
     // if(currentUser) {
     //   props.callback(currentUser.email)
@@ -46,8 +44,8 @@ const LandingPage = (props) =>{
 
   return(
    <>
-    <h2>Sign Up</h2>
-    {currentUser && currentUser.email}
+    <h2>Log In</h2>
+
     {error && <h6>{error}</h6>}
       <form onSubmit = {handleSubmit}>
         <label htmlFor = 'email'>Email</label>
@@ -55,13 +53,13 @@ const LandingPage = (props) =>{
         <label htmlFor = 'password'>Password</label>
         <input type="password" id="password" name="password" ref = {passwordRef}></input><br></br>
         <label htmlFor = 'email'>Password Confirmation</label>
-        <input type="password" id="password-confirm" name="password-confirm" ref = {passwordConfirmRef}></input><br></br>
-        <button disabled = {loading} type = 'submit'>Sign Up</button>
+
+        <button disabled = {loading} type = 'submit'>Log In</button>
       </form>
-      <div>Already have an account? <Link to = 'login'>Log In</Link></div>
+    <div>Need an account? <Link to = 'signup'>Sign Up</Link></div>
    </>
   );
 }
 
 // LandingPage.contextType = ThemeContext;
-export default LandingPage;
+export default Login;
