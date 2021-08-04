@@ -58,8 +58,12 @@ const IndividualCharacter = (props) => {
   //if initial, post the data. if not, get the data from the database
 
 
-  useEffect(async () => {
-    if(props.initial === true) {
+  // useEffect(async () => {
+
+  // }, [])
+
+  const addInfo = async () => {
+    if(initial === true) {
       try {
         const response = await axios.post('/characters', {
           level: level,
@@ -71,7 +75,7 @@ const IndividualCharacter = (props) => {
           attack: attack,
           defense: defense,
           speed: speed,
-          intial: initial,
+          intial: false,
           color: color,
           username: "evansding" //replace with actual username later
         })
@@ -87,7 +91,7 @@ const IndividualCharacter = (props) => {
         return data;
       });
     }
-  })
+  }
 
 
   const openModal = () => {
@@ -110,6 +114,7 @@ const IndividualCharacter = (props) => {
     speed = {speed}
     initial = {initial}
     callback = {closeModal}
+    addInfo = {addInfo}
   />
    : <div></div>;
 

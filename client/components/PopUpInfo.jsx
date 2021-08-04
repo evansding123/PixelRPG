@@ -40,9 +40,14 @@ const PopUpInfo = (props) => {
 
   }
 
+  const addInfo = () => {
+    props.addInfo();
+    props.callback(false);
+  }
+
   const {name, health, range, attack, defense, speed, initial} = props;
 
-  let addButton = initial ? <button>Add!</button> : <div></div>;
+  let addButton = initial ? <button onClick = {addInfo}>Add!</button> : <div></div>;
 
   return (
     <Modal

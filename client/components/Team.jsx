@@ -33,7 +33,16 @@ const Team = (props) => {
           item.width = '50px';
           item.height = '50px';
           item.margin = '5%';
-          return <IndividualCharacter values = {item}/> //need to add a description, can i reuse the modal? probably just make a new one
+          return(
+            <table>
+            <tr>
+              <th><IndividualCharacter values = {item}/></th>
+              <th>{item.name}</th>
+            </tr>
+            </table>
+          );
+
+            //need to add a description, can i reuse the modal? probably just make a new one
         })}
       </div>
     )
