@@ -12,8 +12,8 @@ import { Link, useHistory } from 'react-router-dom';
 const Login = (props) =>{
 
   //const contextType = React.useContext(ThemeContext);
-  const emailRef = useRef();
-  const passwordRef = useRef();
+  const [emailRef, setEmailRef] = useState('');
+  const [passwordRef, setPasswordRef] = useState('');
   const { login } = useAuth();
 
 
@@ -21,7 +21,13 @@ const Login = (props) =>{
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
+  const handleEmail = (e) => {
+    setEmailRef(e.target.value);
+  }
 
+  const handlePassword = (e) => {
+    setPasswordRef(e.target.value);
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -29,7 +35,7 @@ const Login = (props) =>{
     try {
       setError('')
       setLoading(true)
-      await login(emailRef.current.value, passwordRef.current.value)
+      await login(emailRef, passwordRef)
       history.push('/')
     } catch {
       setError('Failed to log in');
@@ -49,11 +55,10 @@ const Login = (props) =>{
     {error && <h6>{error}</h6>}
       <form onSubmit = {handleSubmit}>
         <label htmlFor = 'email'>Email</label>
-        <input type="text" id="email" name="email" ref = {emailRef}></input><br></br>
+        <input onChange = {handleEmail} type="text" id="email" name="email" value = {emailRef}></input><br></br>
         <label htmlFor = 'password'>Password</label>
-        <input type="password" id="password" name="password" ref = {passwordRef}></input><br></br>
+        <input onChange = {handlePassword} type="password" id="password" name="password" value = {passwordRef}></input><br></br>
         <label htmlFor = 'email'>Password Confirmation</label>
-
         <button disabled = {loading} type = 'submit'>Log In</button>
       </form>
     <div>Need an account? <Link to = 'signup'>Sign Up</Link></div>
