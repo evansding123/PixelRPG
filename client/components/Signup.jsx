@@ -10,7 +10,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 
 
-const LandingPage = (props) =>{
+const Signup = (props) =>{
 
   const contextType = React.useContext(ThemeContext);
   const emailRef = useRef();
@@ -47,7 +47,7 @@ const LandingPage = (props) =>{
   return(
    <>
     <h2>Sign Up</h2>
-    {currentUser && currentUser.email}
+    {/* {currentUser && currentUser.email} */}
     {error && <h6>{error}</h6>}
       <form onSubmit = {handleSubmit}>
         <label htmlFor = 'email'>Email</label>
@@ -64,4 +64,4 @@ const LandingPage = (props) =>{
 }
 
 // LandingPage.contextType = ThemeContext;
-export default LandingPage;
+export default Signup;

@@ -9,10 +9,11 @@ import {
 
 import styled from 'styled-components';
 import Summon from './Summon.jsx';
-import LandingPage from './LandingPage.jsx';
+import Signup from './Signup.jsx';
 import Team from './Team.jsx';
 import Dashboard from './Dashboard.jsx';
 import Login from './Login.jsx';
+import PrivateRoute from './PrivateRoute.jsx'
 import { AuthProvider } from '../../src/contexts/AuthContext';
 
 export const ThemeContext = React.createContext('light');
@@ -27,11 +28,11 @@ const NavBar = styled.div`
 const App = (props) => {
 
 
-const [user, setUser] = useState('');
+// const [user, setUser] = useState('');
 
-const addEmail = (email) => {
-  setUser(email);
-}
+// const addEmail = (email) => {
+//   setUser(email);
+// }
 
 
 //const history = useHistory();
@@ -46,26 +47,13 @@ return (
           <Link to ='/summon'>Summon</Link>
           <Link to = '/team'>Teams</Link>
           <Link to = '/login'>Login</Link>
-          {user}
       </NavBar>
       <Switch>
-        <Route exact path = '/'>
-          <Dashboard/>
-        </Route>
-        <Route path="/signup">
-          <ThemeContext.Provider value = 'dark'>
-            <LandingPage callback = {addEmail} />
-          </ThemeContext.Provider>
-        </Route>
-        <Route path = '/login'>
-          <Login />
-        </Route>
-        <Route path = '/summon'>
-          <Summon />
-        </Route>
-        <Route path = '/team'>
-          <Team/>
-        </Route>
+        <PrivateRoute exact path = '/' component = {Dashboard}/>
+        <Route path="/signup" component = {Signup} />
+        <Route path = "/login" component = {Login} />
+        <PrivateRoute path = "/summon" component = {Summon}/>
+        <PrivateRoute path = "/team" component = {Team} />
       </Switch>
     </AuthProvider>
   </Router>
