@@ -24,3 +24,43 @@ export const SummonButton = styled.button`
   font-family: 'VT323', monospace;
 
 `;
+
+
+export const Header = styled.h2`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Container = styled.div`
+
+
+`;
+
+
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  > input {
+    width: 15%;
+
+  }
+
+`;
+
+export const InfoButton = styled.button`
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  text-transform: uppercase;
+  font-family: 'VT323', monospace;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  width: 4rem;
+  border-radius: 5px;
+`;
+

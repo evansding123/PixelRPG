@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react';
-import {ThemeContext} from './App.jsx';
+
 import styled from 'styled-components';
 import { useAuth } from '../../src/contexts/AuthContext'
 import { Link, useHistory } from 'react-router-dom';
+import { Container, Form, Header, InfoButton } from '../styles/styles.jsx';
 
 
 
@@ -12,7 +13,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 const Signup = (props) =>{
 
-  const contextType = React.useContext(ThemeContext);
+  //const contextType = React.useContext(ThemeContext);
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
@@ -46,19 +47,22 @@ const Signup = (props) =>{
 
   return(
    <>
-    <h2>Sign Up</h2>
-    {/* {currentUser && currentUser.email} */}
+    <Header>Sign Up</Header>
     {error && <h6>{error}</h6>}
-      <form onSubmit = {handleSubmit}>
-        <label htmlFor = 'email'>Email</label>
-        <input type="text" id="email" name="email" ref = {emailRef}></input><br></br>
-        <label htmlFor = 'password'>Password</label>
-        <input type="password" id="password" name="password" ref = {passwordRef}></input><br></br>
-        <label htmlFor = 'email'>Password Confirmation</label>
-        <input type="password" id="password-confirm" name="password-confirm" ref = {passwordConfirmRef}></input><br></br>
-        <button disabled = {loading} type = 'submit'>Sign Up</button>
-      </form>
-      <div>Already have an account? <Link to = 'login'>Log In</Link></div>
+      <Container>
+        <Form onSubmit = {handleSubmit}>
+          <label htmlFor = 'email'>Email</label>
+          <input type="text" id="email" name="email" ref = {emailRef}></input><br></br>
+          <label htmlFor = 'password'>Password</label>
+          <input type="password" id="password" name="password" ref = {passwordRef}></input><br></br>
+          <label htmlFor = 'email'>Password Confirmation</label>
+          <input type="password" id="password-confirm" name="password-confirm" ref = {passwordConfirmRef}></input><br></br>
+          <InfoButton disabled = {loading} type = 'submit'>Sign Up</InfoButton><br></br>
+          <div>Already have an account? <Link to = 'login'>Log In</Link></div>
+        </Form>
+
+      </Container>
+
    </>
   );
 }

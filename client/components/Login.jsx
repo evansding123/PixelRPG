@@ -3,6 +3,8 @@ import {ThemeContext} from './App.jsx';
 import styled from 'styled-components';
 import { useAuth } from '../../src/contexts/AuthContext'
 import { Link, useHistory } from 'react-router-dom';
+import { Container, Form, Header, InfoButton } from '../styles/styles.jsx';
+
 
 
 
@@ -37,26 +39,26 @@ const Login = (props) =>{
     // if(currentUser) {
     //   props.callback(currentUser.email)
     // }
-    setLoading(false);
+
+    //setLoading(false);
 
   }
 
 
   return(
    <>
-    <h2>Log In</h2>
+    <Header>Log In</Header>
 
     {error && <h6>{error}</h6>}
-      <form onSubmit = {handleSubmit}>
+      <Form onSubmit = {handleSubmit}>
         <label htmlFor = 'email'>Email</label>
         <input type="text" id="email" name="email" ref = {emailRef}></input><br></br>
         <label htmlFor = 'password'>Password</label>
         <input type="password" id="password" name="password" ref = {passwordRef}></input><br></br>
-        <label htmlFor = 'email'>Password Confirmation</label>
+        <InfoButton disabled = {loading} type = 'submit'>Log In</InfoButton>
+        <div>Need an account? <Link to = 'signup'>Sign Up</Link></div>
+      </Form>
 
-        <button disabled = {loading} type = 'submit'>Log In</button>
-      </form>
-    <div>Need an account? <Link to = 'signup'>Sign Up</Link></div>
    </>
   );
 }

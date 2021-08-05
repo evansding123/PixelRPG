@@ -5,9 +5,6 @@ import axios from 'axios';
 
 
 
-
-
-
 const Frame = styled.div`
   display: flex;
   flex-direction: column;
@@ -17,8 +14,8 @@ const Frame = styled.div`
 `;
 
 
-
 export const Name = styled.h4`
+
   margin: auto;
   top: 45%;
   position: absolute;
