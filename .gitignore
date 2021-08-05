@@ -6,3 +6,4 @@ node_modules
 /dist/public/icons
 config.js
 .env.local
+firebase.config.js
