@@ -14,51 +14,35 @@ import Team from './Team.jsx';
 import Dashboard from './Dashboard.jsx';
 import Login from './Login.jsx';
 import PrivateRoute from './PrivateRoute.jsx'
+import NavBar from './NavBar.jsx';
+//import { useAuth, currentUser } from '../../src/contexts/AuthContext.js'
 import { AuthProvider } from '../../src/contexts/AuthContext';
+
+
 
 //export const ThemeContext = React.createContext('light');
 
-const NavBar = styled.div`
-  display: flex;
-  > a {
-    margin-right: 6px;
-  }
-`;
 
 const App = (props) => {
 
 
-// const [user, setUser] = useState('');
 
-// const addEmail = (email) => {
-//   setUser(email);
-// }
-
-
-//const history = useHistory();
-
-return (
-  <div>
-  <Router>
-    <AuthProvider>
-      <NavBar>
-          <Link to ='/'>Home</Link>
-          <Link to ='/signup'>Sign up</Link>
-          <Link to = '/login'>Login</Link>
-          <Link to ='/summon'>Summon</Link>
-          <Link to = '/team'>Teams</Link>
-      </NavBar>
-      <Switch>
-        <PrivateRoute exact path = '/' component = {Dashboard}/>
-        <Route path='/signup' component = {Signup} />
-        <Route path = '/login' component = {Login} />
-        <PrivateRoute path = '/summon' component = {Summon}/>
-        <PrivateRoute path = '/team' component = {Team} />
-      </Switch>
-    </AuthProvider>
-  </Router>
-  </div>
-);
+  return (
+    <div>
+    <Router>
+      <AuthProvider>
+        <NavBar/>
+        <Switch>
+          <PrivateRoute exact path = '/' component = {Dashboard}/>
+          <Route path='/signup' component = {Signup} />
+          <Route path = '/login' component = {Login} />
+          <PrivateRoute path = '/summon' component = {Summon}/>
+          <PrivateRoute path = '/team' component = {Team} />
+        </Switch>
+      </AuthProvider>
+    </Router>
+    </div>
+  );
 
 
 }

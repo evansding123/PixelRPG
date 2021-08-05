@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import PopUpInfo from './PopUpInfo.jsx';
 import axios from 'axios';
+import { useAuth, currentUser } from '../../src/contexts/AuthContext'
+
 
 
 
@@ -59,6 +61,9 @@ const IndividualCharacter = (props) => {
 
   // }, [])
 
+  const { currentUser } = useAuth();
+  //console.log(currentUser);
+
   const addInfo = async () => {
     if(initial === true) {
       try {
@@ -74,7 +79,7 @@ const IndividualCharacter = (props) => {
           speed: speed,
           intial: false,
           color: color,
-          username: "evansding" //replace with actual username later
+          username: currentUser.email //replace with actual username later
         })
         console.log(response);
       } catch(error) {

@@ -3,7 +3,7 @@ import {ThemeContext} from './App.jsx';
 import styled from 'styled-components';
 import { useAuth } from '../../src/contexts/AuthContext'
 import { Link, useHistory } from 'react-router-dom';
-import { Container, Form, Header, InfoButton } from '../styles/styles.jsx';
+import { Container, Form, Header, InfoButton, Error } from '../styles/styles.jsx';
 
 
 
@@ -48,14 +48,13 @@ const Login = (props) =>{
   return(
    <>
     <Header>Log In</Header>
-
-    {error && <h6>{error}</h6>}
+    {error && <Error>{error}</Error>}
       <Form onSubmit = {handleSubmit}>
         <label htmlFor = 'email'>Email</label>
         <input type="text" id="email" name="email" ref = {emailRef}></input><br></br>
         <label htmlFor = 'password'>Password</label>
         <input type="password" id="password" name="password" ref = {passwordRef}></input><br></br>
-        <InfoButton disabled = {loading} type = 'submit'>Log In</InfoButton>
+        <InfoButton disabled = {loading} type = 'submit'>Log In</InfoButton><br></br>
         <div>Need an account? <Link to = 'signup'>Sign Up</Link></div>
       </Form>
 

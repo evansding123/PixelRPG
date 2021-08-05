@@ -32,9 +32,10 @@ export const Header = styled.h2`
   align-items: center;
 `;
 
-export const Container = styled.div`
-
-
+export const Error = styled.h5`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 

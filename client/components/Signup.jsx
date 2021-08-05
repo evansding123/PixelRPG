@@ -3,7 +3,7 @@ import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import { useAuth } from '../../src/contexts/AuthContext'
 import { Link, useHistory } from 'react-router-dom';
-import { Container, Form, Header, InfoButton } from '../styles/styles.jsx';
+import { Container, Form, Header, InfoButton, Error } from '../styles/styles.jsx';
 
 
 
@@ -48,8 +48,8 @@ const Signup = (props) =>{
   return(
    <>
     <Header>Sign Up</Header>
-    {error && <h6>{error}</h6>}
-      <Container>
+    {error && <Error>{error}</Error>}
+
         <Form onSubmit = {handleSubmit}>
           <label htmlFor = 'email'>Email</label>
           <input type="text" id="email" name="email" ref = {emailRef}></input><br></br>
@@ -61,7 +61,6 @@ const Signup = (props) =>{
           <div>Already have an account? <Link to = 'login'>Log In</Link></div>
         </Form>
 
-      </Container>
 
    </>
   );

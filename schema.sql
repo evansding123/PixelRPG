@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS Account, individual_character, equipment, weapon, armor, mo
 
 CREATE TABLE Account (
  id serial PRIMARY KEY,
- username VARCHAR NOT NULL,
+ username VARCHAR NOT NULL UNIQUE,
  password VARCHAR NOT NULL
 );
 
