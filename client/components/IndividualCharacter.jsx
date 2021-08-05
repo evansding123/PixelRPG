@@ -29,23 +29,25 @@ export const Name = styled.h4`
 
 `;
 
-//meed to learn redux late to store global state
-const IndividualCharacter = (props) => {
-
-  const {color, level, exp, name, health, mana, picture, range, attack, defense, speed, initial, height, width, margin} = props.values;
-
-  const Pic = styled.img`
+const Pic = styled.img`
 
   position: relative;
   margin: auto;
-  margin-left: ${margin};
-  height: ${height};
-  width: ${width};
+  margin-left: ${props => props.margin};
+  height: ${props => props.height};
+  width: ${props => props.width};
   margin-top: 10%;
   overflow: hidden;
   cursor: pointer;
 
 `;
+
+//meed to learn redux late to store global state
+const IndividualCharacter = (props) => {
+
+  const {color, level, exp, name, health, mana, picture, range, attack, defense, speed, initial, height, width, margin} = props.values;
+
+
 
 
   const [data, setData] = useState({});
@@ -125,7 +127,7 @@ const IndividualCharacter = (props) => {
     <div>
       <Frame>
         {/* <div>{props.index}</div> */}
-        <Pic onClick = {openModal} src = {picture} alt = 'character'></Pic>
+        <Pic margin = {margin} height = {height} width = {width} onClick = {openModal} src = {picture} alt = 'character'></Pic>
         <br></br>
         {/* <Name>{props.name}</Name> */}
       </Frame>

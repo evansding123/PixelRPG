@@ -15,7 +15,7 @@ import Dashboard from './Dashboard.jsx';
 import Login from './Login.jsx';
 import PrivateRoute from './PrivateRoute.jsx'
 import NavBar from './NavBar.jsx';
-//import { useAuth, currentUser } from '../../src/contexts/AuthContext.js'
+import Adventure from './actions/Adventure.jsx'
 import { AuthProvider } from '../../src/contexts/AuthContext';
 
 
@@ -38,6 +38,7 @@ const App = (props) => {
           <Route path = '/login' component = {Login} />
           <PrivateRoute path = '/summon' component = {Summon}/>
           <PrivateRoute path = '/team' component = {Team} />
+          <PrivateRoute path = '/adventure' component = {Adventure} />
         </Switch>
       </AuthProvider>
     </Router>

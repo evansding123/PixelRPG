@@ -30,10 +30,11 @@ const NavBar = (props) => {
   return (
     <Navigation>
             <Link to ='/'>Home</Link>
-            <Link to ='/signup'>Sign up</Link>
-            <Link to = '/login'>Login</Link>
+            {!currentUser && <Link to ='/signup'>Sign up</Link>}
+            {!currentUser && <Link to = '/login'>Login</Link>}
             <Link to ='/summon'>Summon</Link>
             <Link to = '/team'>Teams</Link>
+            <Link to = '/adventure'>Adventure</Link>
             <Email>{currentUser && currentUser.email}</Email>
     </Navigation>
   )
