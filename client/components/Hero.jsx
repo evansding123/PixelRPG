@@ -49,6 +49,18 @@ const Hero = (props) => {
           width : '10%',
           height : '10vh',
           initial : true,
+          moveSet: [
+            {
+              moveName: 'punch',
+              power: 1,
+              cost: 1,
+            },
+            {
+              moveName: 'kick',
+              power: 2,
+              cost: 2,
+            },
+          ]
         }}
 
       />,
@@ -67,6 +79,18 @@ const Hero = (props) => {
           speed : 10,
           color : '#FFFF0080',
           initial : true,
+          moveSet: [
+            {
+              moveName: 'punch',
+              power: 1,
+              cost: 1,
+            },
+            {
+              moveName: 'kick',
+              power: 2,
+              cost: 2,
+            },
+          ]
         }}
 
       />,
@@ -85,6 +109,18 @@ const Hero = (props) => {
           speed : 10,
           color : '#CC660080',
           initial : true,
+          moveSet: [
+            {
+              moveName: 'punch',
+              power: 1,
+              cost: 1,
+            },
+            {
+              moveName: 'kick',
+              power: 2,
+              cost: 2,
+            },
+          ]
       }}
 
       />,
@@ -103,6 +139,18 @@ const Hero = (props) => {
           speed : 10,
           color : '#CC660080',
           initial : true,
+          moveSet: [
+            {
+              moveName: 'punch',
+              power: 1,
+              cost: 1,
+            },
+            {
+              moveName: 'kick',
+              power: 2,
+              cost: 2,
+            },
+          ]
       }}
 
 
@@ -122,6 +170,18 @@ const Hero = (props) => {
           speed : 10,
           color : '#00CCCC80',
           initial : true,
+          moveSet: [
+            {
+              moveName: 'punch',
+              power: 1,
+              cost: 1,
+            },
+            {
+              moveName: 'kick',
+              power: 2,
+              cost: 2,
+            },
+          ]
       }}
       />,
     6: <IndividualCharacter
@@ -139,6 +199,18 @@ const Hero = (props) => {
           speed : 10,
           color : '#7F00FF80',
           initial : true,
+          moveSet: [
+            {
+              moveName: 'punch',
+              power: 1,
+              cost: 1,
+            },
+            {
+              moveName: 'kick',
+              power: 2,
+              cost: 2,
+            },
+          ]
       }}
       />,
     7: <IndividualCharacter
@@ -156,6 +228,18 @@ const Hero = (props) => {
           speed : 10,
           color : '#FFFF0080',
           initial : true,
+          moveSet: [
+            {
+              moveName: 'punch',
+              power: 1,
+              cost: 1,
+            },
+            {
+              moveName: 'kick',
+              power: 2,
+              cost: 2,
+            },
+          ]
         }}
       />,
     8: <IndividualCharacter
@@ -173,6 +257,18 @@ const Hero = (props) => {
           speed : 10,
           color : '#9933FF80',
           initial : true,
+          moveSet: [
+            {
+              moveName: 'punch',
+              power: 1,
+              cost: 1,
+            },
+            {
+              moveName: 'kick',
+              power: 2,
+              cost: 2,
+            },
+          ]
         }}
     />,
   }

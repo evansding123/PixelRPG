@@ -45,7 +45,7 @@ const Pic = styled.img`
 //meed to learn redux late to store global state
 const IndividualCharacter = (props) => {
 
-  const {color, level, exp, name, health, mana, picture, range, attack, defense, speed, initial, height, width, margin} = props.values;
+  const {color, level, exp, name, health, mana, picture, range, attack, defense, speed, initial, height, width, margin, moveSet} = props.values;
 
 
 
@@ -81,7 +81,8 @@ const IndividualCharacter = (props) => {
           speed: speed,
           intial: false,
           color: color,
-          username: currentUser.email //replace with actual username later
+          username: currentUser.email, //replace with actual username later
+          moveSet: moveSet,
         })
         console.log(response);
       } catch(error) {

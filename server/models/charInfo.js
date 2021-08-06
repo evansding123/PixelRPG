@@ -16,6 +16,37 @@ module.exports = {
   },
 
 
+  postMoves: async (moves, name) => {
+    console.log('moves in model', moves);
+
+    try {
+      const query = `SELECT id from individual_character WHERE name = '${name}'`;
+      const id = await pool.query(query);
+
+
+
+      for(var i = 0; i < moves.length; i++) {
+        const {moveName, power, cost} = moves[i];
+        const query2 = `INSERT INTO moves (id_individual_character, name, description, power, mana_cost)
+        VALUES (${id.rows[id.rows.length - 1].id}, '${moveName}', null, ${power}, ${cost});`;
+
+        const res = await pool.query(query2);
+        //return res;
+      }
+
+      return id;
+
+
+    } catch(error) {
+      console.log(error);
+      throw(error);
+    }
+
+
+
+  },
+
+
   getCharInfo: async(values = []) => {
     const query = `SELECT * FROM individual_character WHERE id_Account = (SELECT id from Account where username = $1)`;
 
