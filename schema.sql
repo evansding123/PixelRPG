@@ -26,7 +26,7 @@ CREATE TABLE individual_character (
  color VARCHAR,
  id_Account INTEGER,
  height INTEGER,
- width INTEGER
+ width INTEGER,
 );
 
 
@@ -63,7 +63,7 @@ CREATE TABLE moves (
  id serial PRIMARY KEY,
  id_individual_character INTEGER,
  name VARCHAR,
- description INTEGER,
+ description VARCHAR,
  power INTEGER,
  mana_cost INTEGER,
  thumbnail VARCHAR
@@ -76,3 +76,10 @@ ALTER TABLE equipment ADD FOREIGN KEY (id_individual_character) REFERENCES indiv
 ALTER TABLE weapon ADD FOREIGN KEY (id_equipment) REFERENCES equipment(id);
 ALTER TABLE armor ADD FOREIGN KEY (id_equipment) REFERENCES equipment(id);
 ALTER TABLE moves ADD FOREIGN KEY (id_individual_character) REFERENCES individual_character(id);
+
+CREATE INDEX ON individual_character (id_Account);
+CREATE INDEX ON Account (id);
+CREATE INDEX ON Account (username);
+
+
+INSERT INTO Account (username, password) VALUES ('evansding@gmail.com', 'blah');

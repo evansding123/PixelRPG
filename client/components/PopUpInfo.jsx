@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Modal from 'react-modal';
-import {Name} from '../styles/styles.jsx';
+import {Name, InfoButton} from '../styles/styles.jsx';
 
 Modal.setAppElement('#app');
 
@@ -47,7 +47,7 @@ const PopUpInfo = (props) => {
 
   const {name, health, range, attack, defense, speed, initial} = props;
 
-  let addButton = initial ? <button onClick = {addInfo}>Add!</button> : <div></div>;
+  let addButton = initial ? <InfoButton onClick = {addInfo}>Add!</InfoButton> : <div></div>;
 
   return (
     <Modal
