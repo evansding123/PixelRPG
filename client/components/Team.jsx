@@ -1,7 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
+
 import IndividualCharacter from './IndividualCharacter.jsx';
+import DescriptionBox from './DescriptionBox.jsx';
 import { useAuth, currentUser } from '../../src/contexts/AuthContext'
+
+
+const Members = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+`;
+
+const Member = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+`;
+
+const Name = styled.div`
+  margin: 10px;
+  width: 50px;
+`;
 
 
 
@@ -37,12 +61,14 @@ const Team = (props) => {
           item.height = '50px';
           item.margin = '5%';
           return(
-            <table>
-            <tr>
-              <th><IndividualCharacter values = {item}/></th>
-              <th>{item.name}</th>
-            </tr>
-            </table>
+              <Members>
+                <Member>
+                  <IndividualCharacter values = {item}/>
+                  <Name>{item.name}</Name>
+                  <DescriptionBox values = {item}/>
+                </Member>
+              </Members>
+
           );
 
             //need to add a description, can i reuse the modal? probably just make a new one
