@@ -40,7 +40,7 @@ const Signup = (props) =>{
     // if(currentUser) {
     //   props.callback(currentUser.email)
     // }
-    setLoading(false);
+    //setLoading(false);
 
   }
 

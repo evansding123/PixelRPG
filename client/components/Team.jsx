@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import loading from '../pictures/loading.gif';
 
 import IndividualCharacter from './IndividualCharacter.jsx';
 import DescriptionBox from './DescriptionBox.jsx';
@@ -76,7 +77,7 @@ const Team = (props) => {
       </div>
     )
   } else {
-    return <div>PLEASE SUMMON A HERO</div>
+    return <div>LOADING</div>
   }
 
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useState  } from 'react'
 import { auth } from '../firebase'
+import axios from 'axios';
 
 const AuthContext = React.createContext();
 
@@ -11,7 +12,17 @@ export function AuthProvider({children}) {
   const [currentUser, setCurrentUser] = useState()
   const [loading, setLoading] = useState(true)
 
-  function signup(email, password) {
+  async function signup(email, password) {
+    try {
+      const response = await axios.post('/account', {
+        email: email,
+        password: password
+      })
+      console.log(response);
+    } catch(error) {
+      console.log(error);
+    }
+
     return auth.createUserWithEmailAndPassword(email, password)
   }
 
