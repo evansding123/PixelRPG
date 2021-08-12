@@ -50,9 +50,31 @@ module.exports = {
   getCharInfo: async(values = []) => {
     const query = `SELECT * FROM individual_character WHERE id_Account = (SELECT id from Account where username = $1)`;
 
+
+
+    const querytest = `SELECT * FROM individual_character FULL OUTER JOIN moves ON id_Account = (SELECT id from Account where username = $1)`;
+
+    const storage = [];
+
+
     try {
 
       const res = await pool.query(query, values);
+      console.log(res.rows);
+
+      for(var i = 0; i < res.rows.length; i++) {
+        const query2 = `SELECT * from moves WHERE ${res.rows[i].id} = id_individual_character`;
+
+        const res2 = await pool.query(query2);
+        //console.log(res2.rows);
+        // let obj = {};
+        // obj.moves = res2.rows;
+        res.rows[i].moves = res2.rows;
+        //add the moves into the character object
+
+      }
+
+
       return res;
     } catch(error) {
       console.log(error);
@@ -60,9 +82,6 @@ module.exports = {
     }
 
   }
-
-
-
 
 
 }
