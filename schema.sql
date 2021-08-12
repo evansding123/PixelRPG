@@ -26,7 +26,7 @@ CREATE TABLE individual_character (
  color VARCHAR,
  id_Account INTEGER,
  height INTEGER,
- width INTEGER
+ width INTEGER,
 );
 
 
