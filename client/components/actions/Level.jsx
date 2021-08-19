@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 
 import Team from '../Team.jsx';
+import Enemy from './Enemy.jsx';
 import demon from '../../pictures/demon.gif'
 
 const Pic = styled.img`
@@ -20,6 +21,10 @@ const Pic = styled.img`
 
 const Level = (props) => {
 
+  //probably have a useeffect that gets boss information here
+
+
+
 
   const stage = [
     [0,0,0,0],
@@ -28,8 +33,36 @@ const Level = (props) => {
     [0,0,0,0],
   ]
 
+  //temporary place to store enemy info
 
-  const fighters = {
+  const stats = {
+
+      level : 1,
+      exp : 0,
+      mana : 5,
+      health : 10,
+      picture : demon,
+      name : 'demon',
+      index : 1,
+      range  : 1,
+      attack : 5,
+      defense : 5,
+      speed : 10,
+      width : '10%',
+      height : '10vh',
+      initial : true,
+      moveSet: [
+        {
+          moveName: 'punch',
+          power: 1,
+          cost: 1,
+        },
+        {
+          moveName: 'kick',
+          power: 2,
+          cost: 2,
+        },
+      ]
 
   }
 
@@ -37,7 +70,7 @@ const Level = (props) => {
     //maybe can reuse this. or make a separate component
     <>
     <div><Team/></div>
-    <Pic src = {demon} alt = 'enemy'></Pic>
+    <Enemy pic = {demon} values = {stats}/>
     </>
   )
 

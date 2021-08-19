@@ -44,7 +44,7 @@ const Adventure = (props) => {
         {!clicked && <Link to = 'levelone' onClick = {handleClick}>Level One</Link>}
       </Navigation>
       <Switch>
-        <Route exact path='/levelone' component = {Level} />
+        <Route exact path='/levelone' render = {(props) => <Level {...props} description = {'something'}/> } />
       </Switch>
     </Router>
 

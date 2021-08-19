@@ -1,0 +1,35 @@
+import React, { useRef, useState } from 'react';
+import styled, { css } from 'styled-components';
+
+const Pic = styled.img`
+
+  position: relative;
+  margin: auto;
+  margin-left: ${props => props.margin};
+  height: ${props => props.height};
+  width: ${props => props.width};
+  margin-top: 10%;
+  overflow: hidden;
+  cursor: pointer;
+
+`;
+
+
+
+const Enemy = (props) => {
+
+  const {color, level, exp, name, health, mana, picture, range, attack, defense, speed, initial, height, width, margin, moveSet} = props.values;
+
+
+  return(
+    <>
+    <Pic src = {props.pic} alt = 'enemy'></Pic>
+    <div>{health}</div>
+    <div>{mana}</div>
+    </>
+  )
+
+}
+
+
+export default Enemy;
