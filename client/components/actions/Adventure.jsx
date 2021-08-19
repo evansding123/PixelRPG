@@ -6,7 +6,8 @@ import {
   Route,
   Link,
   NavLink,
-  useHistory
+  useHistory,
+  HashRouter
 } from "react-router-dom";
 
 import Level from './Level.jsx';
@@ -38,15 +39,15 @@ const Adventure = (props) => {
   // }, [])
 
   return(
-    <Router>
+    <HashRouter>
       <Navigation>
         {clicked && <Link to = '/adventure' onClick = {handleClick} >Back</Link>}
-        {!clicked && <Link to = 'levelone' onClick = {handleClick}>Level One</Link>}
+        {!clicked && <Link to = '/levelone' onClick = {handleClick}>Level One</Link>}
       </Navigation>
       <Switch>
-        <Route exact path='/levelone' render = {(props) => <Level {...props} description = {'something'}/> } />
+        <Route path='/levelone' render = {(props) => <Level {...props} description = {'something'}/> } />
       </Switch>
-    </Router>
+    </HashRouter>
 
   )
 

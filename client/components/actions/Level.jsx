@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
-
+import BattleTeam from './BattleTeam.jsx';
 import Team from '../Team.jsx';
 import Enemy from './Enemy.jsx';
 import demon from '../../pictures/demon.gif'
@@ -69,8 +69,8 @@ const Level = (props) => {
   return(
     //maybe can reuse this. or make a separate component
     <>
-    <div><Team/></div>
-    <Enemy pic = {demon} values = {stats}/>
+    <div><BattleTeam/></div>
+    <Enemy values = {stats}/>
     </>
   )
 

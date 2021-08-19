@@ -23,9 +23,8 @@ const Enemy = (props) => {
 
   return(
     <>
-    <Pic src = {props.pic} alt = 'enemy'></Pic>
-    <div>{health}</div>
-    <div>{mana}</div>
+      <Pic src = {picture} alt = 'enemy'></Pic>
+      <div>Health: {health}</div>
     </>
   )
 
