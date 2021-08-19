@@ -23,6 +23,8 @@ const Level = (props) => {
 
   //probably have a useeffect that gets boss information here
 
+  //might need to set an initialState that has both the boss and the team information plus whos turn it is. we can update everything in that hook/state
+
 
 
 
