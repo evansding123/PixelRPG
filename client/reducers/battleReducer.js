@@ -6,8 +6,6 @@ export const battleReducer = createSlice({
     enemy: {},
     player: [],
     count: 0,
-    active: true,
-    playerNumber: 0
   },
   reducers: {
     initializeEnemy: (state, action) => {
@@ -51,6 +49,16 @@ export const battleReducer = createSlice({
 
     defend: (state, action) => {
       //enemy attacks and player has to defend
+      let random = Math.floor(Math.random() * state.player.length);
+      state.player[random].health -= action.payload.power;
+      state.enemy.status = false;
+      state.count = 0;
+      for(var i = 0; i < state.player.length; i++) {
+        state.player[i].status = true;
+      }
+
+
+
     },
 
     modify: (state) => {

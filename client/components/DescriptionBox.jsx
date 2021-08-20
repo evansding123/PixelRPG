@@ -19,7 +19,7 @@ const Stats = styled.div`
 
 `;
 
-const MovesStats = styled.div`
+const CharStats = styled.div`
   display: flex;
 
   justify-content: center;
@@ -34,9 +34,9 @@ const Moves = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+
   align-items: flex-start;
-  margin-bottom: auto;
+
 
 `;
 
@@ -70,7 +70,7 @@ const DescriptionBox = (props) => {
 
   return (
     <>
-    <MovesStats color = {color}>
+    <CharStats color = {color}>
       <Stats>
 
         <div>Health: {health}</div>
@@ -80,7 +80,7 @@ const DescriptionBox = (props) => {
         <div>Speed: {speed}</div>
 
       </Stats>
-    </MovesStats>
+    </CharStats>
      <Moves>
      {/* <div> Moves: </div> */}
        {moveSet.map((item, index) => {

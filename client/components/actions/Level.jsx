@@ -120,8 +120,8 @@ const Level = (props) => {
     <>
       {enemy.status === false && <div>YOUR TURN</div>}
       {enemy.status === true && <div>ENEMY TURN</div>}
-      <div><BattleTeam character = {player}/></div>
       <Enemy values = {enemy}/>
+      <div><BattleTeam character = {player}/></div>
     </>
   )
 

@@ -11,7 +11,7 @@ import { modify } from '../../reducers/battleReducer';
 
 const Members = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: flex-start;
 
@@ -20,7 +20,8 @@ const Members = styled.div`
 const Member = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+
+  min-width: 600px;
 
 
 `;

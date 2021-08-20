@@ -60,7 +60,7 @@ const MoveInfo =(props) => {
       <MoveSets color = {props.color}>
         {mode !== 'battle' && <InfoButton>{name}</InfoButton>}
         {mode === 'battle' && player[props.index].status && <InfoButton onClick = {handleClick}>{name}</InfoButton>}
-        {!player[props.index].status && <InactiveButton>{name}</InactiveButton>}
+        {mode === 'battle' && !player[props.index].status && <InactiveButton>{name}</InactiveButton>}
         <MoveModal>cost: {mana_cost}</MoveModal>
         <MoveModal>power: {power}</MoveModal>
       </MoveSets>
