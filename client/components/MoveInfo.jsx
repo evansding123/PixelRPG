@@ -32,7 +32,7 @@ const MoveModal = styled.div`
 
 const MoveInfo =(props) => {
 
-  const {name, mana_cost, power, color} = props.info;
+  const {name, mana_cost, power, color, id_individual_character} = props.info;
 
   const mode = useSelector((state) => state.mode.value);
   const initalState = useSelector((state) => state.battle.enemy);
@@ -41,7 +41,10 @@ const MoveInfo =(props) => {
   const handleClick = () => {
     console.log('battle click');
     //pass something into my reducer function
-    dispatch(attack(power));
+    dispatch(attack({
+      power: power,
+      id: id_individual_character
+    }));
 
   }
 

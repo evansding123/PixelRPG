@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux'
+
 
 const Pic = styled.img`
 

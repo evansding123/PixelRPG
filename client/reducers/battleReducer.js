@@ -22,14 +22,23 @@ export const battleReducer = createSlice({
     attack: (state, action) => {
 
 
-      state.enemy.health -= action.payload;
+      state.enemy.health -= action.payload.power;
+      state.enemy.status = true;
+
+      for(var i = 0; i < state.player.length; i++) {
+        if(state.player[i].id === action.payload.id) {
+          state.player[i].status = false;
+        }
+      }
+
+
     },
 
     defend: (state, action) => {
       //enemy attacks and player has to defend
     },
 
-    modify: (state, action) => {
+    modify: (state) => {
       for(var i = 0; i < state.player.length; i++) {
         state.player[i].width = '50px';
         state.player[i].height = '50px';
