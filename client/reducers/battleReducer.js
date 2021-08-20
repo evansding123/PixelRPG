@@ -4,7 +4,9 @@ export const battleReducer = createSlice({
   name: 'battle',
   initialState: {
     enemy: {},
-    player: []
+    player: [],
+    count: 0,
+    active: true
   },
   reducers: {
     initializeEnemy: (state, action) => {
@@ -23,13 +25,22 @@ export const battleReducer = createSlice({
 
 
       state.enemy.health -= action.payload.power;
-      state.enemy.status = true;
+      // state.enemy.status = true;
+      state.count++;
+
 
       for(var i = 0; i < state.player.length; i++) {
         if(state.player[i].id === action.payload.id) {
           state.player[i].status = false;
         }
       }
+
+      if(state.count >= state.player.length) {
+        state.active = false;
+        state.enemy.status = true;
+      }
+
+
 
 
     },

@@ -60,7 +60,7 @@ const BattleTeam = (props) => {
   //   fetchData();
 
   // }, [])
-  dispatch((modify()));
+
 
   if(character.length !== 0) {
     return(

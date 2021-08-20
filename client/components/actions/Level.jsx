@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useAuth, currentUser } from '../../../src/contexts/AuthContext';
 import { useSelector, useDispatch } from 'react-redux'
 import { changeMode } from '../../reducers/modeChange'
-import { initializeEnemy, initializeTeam } from '../../reducers/battleReducer';
+import { initializeEnemy, initializeTeam, modify } from '../../reducers/battleReducer';
 import BattleTeam from './BattleTeam.jsx';
 import Team from '../Team.jsx';
 import Enemy from './Enemy.jsx';
@@ -60,6 +60,7 @@ const Level = (props) => {
   const mode = useSelector((state) => state.mode.value);
   const enemy = useSelector((state) => state.battle.enemy);
   const player = useSelector((state) => state.battle.player);
+  const count = useSelector((state) => state.battle.count);
   const dispatch = useDispatch();
 
   const { currentUser } = useAuth();
@@ -95,23 +96,30 @@ const Level = (props) => {
 
     fetchData();
 
-    stats.turn = 'enemy';
+    stats.status = false;
 
     dispatch(initializeEnemy(stats));
+
 
     //after the battle is over, wipe the reducer function
 
   }, [])
 
 
+  dispatch((modify()));
 
-  console.log(player);
+  // if(count >= player.length) {
+  //   //disable button
+  //   dispatch()
+  // }
 
 
 
   return(
     //maybe can reuse this. or make a separate component
     <>
+      {enemy.status === false && <div>YOUR TURN</div>}
+      {enemy.status === true && <div>ENEMY TURN</div>}
       <div><BattleTeam character = {player}/></div>
       <Enemy values = {enemy}/>
     </>

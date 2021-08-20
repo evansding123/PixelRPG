@@ -66,3 +66,17 @@ export const InfoButton = styled.button`
   border-radius: 5px;
 `;
 
+export const InactiveButton = styled.button`
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  text-transform: uppercase;
+  font-family: 'VT323', monospace;
+  background-color: grey;
+  color: #A0A0A0;
+  cursor: pointer;
+  width: 4rem;
+  border-radius: 5px;
+`;
+
+

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { InfoButton } from '../styles/styles.jsx'
+import { InfoButton, InactiveButton } from '../styles/styles.jsx'
 import { useSelector, useDispatch } from 'react-redux'
 import { changeMode } from '../reducers/modeChange'
 import { attack } from '../reducers/battleReducer'
@@ -36,6 +36,8 @@ const MoveInfo =(props) => {
 
   const mode = useSelector((state) => state.mode.value);
   const initalState = useSelector((state) => state.battle.enemy);
+  const active = useSelector((state) => state.battle.active);
+
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -51,7 +53,8 @@ const MoveInfo =(props) => {
   return (
     <MoveSets color = {props.color}>
       {mode !== 'battle' && <InfoButton>{name}</InfoButton>}
-      {mode === 'battle' && <InfoButton onClick = {handleClick}>{name}</InfoButton>}
+      {mode === 'battle' && active && <InfoButton onClick = {handleClick}>{name}</InfoButton>}
+      {!active && <InactiveButton>{name}</InactiveButton>}
       <MoveModal>cost: {mana_cost}</MoveModal>
       <MoveModal>power: {power}</MoveModal>
     </MoveSets>
