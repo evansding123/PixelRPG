@@ -1,29 +1,15 @@
-import { createSlice, configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit';
+import counterReducer from './reducers/counterSlice';
+import modeChange from './reducers/modeChange';
+import battleReducer from './reducers/battleReducer';
 
-const counterSlice = createSlice({
-  name: 'counter',
-  initialState: {
-    value: 0
-  },
-  reducers: {
-    incremented: state => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1
-    },
-    decremented: state => {
-      state.value -= 1
-    }
-  }
-})
 
-export const store = configureStore({
+
+export default configureStore({
   reducer: {
-    counter: counterSlice.reducer
+    counter: counterReducer,
+    mode: modeChange,
+    battle: battleReducer
   }
 })
 
-export const { incremented, decremented } = counterSlice.actions;
-//export default counterSlice.reducer;

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { InfoButton } from '../styles/styles.jsx'
+import { useSelector, useDispatch } from 'react-redux'
+import { changeMode } from '../reducers/modeChange'
 
 
 
@@ -31,11 +33,16 @@ const MoveInfo =(props) => {
 
   const {name, mana_cost, power, color} = props.info;
 
+  const mode = useSelector((state) => state.mode.value);
 
+  const handleClick = () => {
+    console.log('clicked');
+  }
 
   return (
     <MoveSets color = {props.color}>
-      <InfoButton>{name}</InfoButton>
+      {mode !== 'battle' && <InfoButton>{name}</InfoButton>}
+      {mode === 'battle' && <InfoButton onClick = {handleClick}>{name}</InfoButton>}
       <MoveModal>cost: {mana_cost}</MoveModal>
       <MoveModal>power: {power}</MoveModal>
     </MoveSets>

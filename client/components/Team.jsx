@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux'
+import { changeMode } from '../reducers/modeChange'
+
 import loading from '../pictures/loading.gif';
 
 import IndividualCharacter from './IndividualCharacter.jsx';
@@ -34,6 +37,8 @@ const Name = styled.div`
 
 const Team = (props) => {
 
+  const mode = useSelector((state) => state.mode.value);
+  const dispatch = useDispatch();
 
   const [character, addChar] = useState([]);
   const { currentUser } = useAuth();
@@ -57,6 +62,8 @@ const Team = (props) => {
 
     }
 
+
+    dispatch(changeMode(''));
     fetchData();
 
   }, [])
