@@ -105,7 +105,7 @@ const Level = (props) => {
 
 
 
-  console.log(player);
+
 
 
 

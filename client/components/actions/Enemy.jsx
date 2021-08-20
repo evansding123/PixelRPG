@@ -1,5 +1,8 @@
 import React, { useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux'
+
+//i added something to test branch
 
 const Pic = styled.img`
 
