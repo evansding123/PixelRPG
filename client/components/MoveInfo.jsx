@@ -36,7 +36,11 @@ const MoveInfo =(props) => {
 
   const mode = useSelector((state) => state.mode.value);
   const initalState = useSelector((state) => state.battle.enemy);
-  const active = useSelector((state) => state.battle.active);
+  const player = useSelector((state) => state.battle.player);
+
+
+
+
 
   const dispatch = useDispatch();
 
@@ -50,15 +54,18 @@ const MoveInfo =(props) => {
 
   }
 
-  return (
-    <MoveSets color = {props.color}>
-      {mode !== 'battle' && <InfoButton>{name}</InfoButton>}
-      {mode === 'battle' && active && <InfoButton onClick = {handleClick}>{name}</InfoButton>}
-      {!active && <InactiveButton>{name}</InactiveButton>}
-      <MoveModal>cost: {mana_cost}</MoveModal>
-      <MoveModal>power: {power}</MoveModal>
-    </MoveSets>
-  )
+
+
+    return (
+      <MoveSets color = {props.color}>
+        {mode !== 'battle' && <InfoButton>{name}</InfoButton>}
+        {mode === 'battle' && player[props.index].status && <InfoButton onClick = {handleClick}>{name}</InfoButton>}
+        {!player[props.index].status && <InactiveButton>{name}</InactiveButton>}
+        <MoveModal>cost: {mana_cost}</MoveModal>
+        <MoveModal>power: {power}</MoveModal>
+      </MoveSets>
+    )
+
 
 }
 

@@ -83,11 +83,11 @@ const DescriptionBox = (props) => {
     </MovesStats>
      <Moves>
      {/* <div> Moves: </div> */}
-       {moveSet.map((item) => {
+       {moveSet.map((item, index) => {
          return (
            <Move>
              {/* <div>{item.name}</div> */}
-             {<MoveInfo color = {color} info = {item}/>}
+             {<MoveInfo color = {color} info = {item} index = {props.index}/>}
            </Move>
          )
        })}

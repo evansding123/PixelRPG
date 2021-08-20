@@ -65,7 +65,7 @@ const BattleTeam = (props) => {
   if(character.length !== 0) {
     return(
       <Members>
-        {character.map((item) => {
+        {character.map((item, index) => {
           // item.width = '50px';
           // item.height = '50px';
           // item.margin = '5%';
@@ -74,7 +74,7 @@ const BattleTeam = (props) => {
                 <Member>
                   <IndividualCharacter values = {item}/>
                   <Name>{item.name}</Name>
-                  <DescriptionBox values = {item}/>
+                  <DescriptionBox values = {item} index = {index}/>
                 </Member>
           );
 
