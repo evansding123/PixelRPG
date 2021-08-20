@@ -1,8 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
+import axios from 'axios';
+import { useAuth, currentUser } from '../../../src/contexts/AuthContext';
 import { useSelector, useDispatch } from 'react-redux'
 import { changeMode } from '../../reducers/modeChange'
-import { initialize } from '../../reducers/battleReducer';
+import { initializeEnemy, initializeTeam } from '../../reducers/battleReducer';
 import BattleTeam from './BattleTeam.jsx';
 import Team from '../Team.jsx';
 import Enemy from './Enemy.jsx';
@@ -56,11 +58,14 @@ const Level = (props) => {
 }
 
   const mode = useSelector((state) => state.mode.value);
-  const battle = useSelector((state) => state.battle.value);
+  const enemy = useSelector((state) => state.battle.enemy);
+  const player = useSelector((state) => state.battle.player);
   const dispatch = useDispatch();
-  const [charInfo, setChar] = useState(stats);
 
-  //probably have a useeffect that gets boss information here
+  const { currentUser } = useAuth();
+
+
+
 
   //might need to set an initialState that has both the boss and the team information plus whos turn it is. we can update everything in that hook/state
 
@@ -70,9 +75,29 @@ const Level = (props) => {
   useEffect(() => {
 
     dispatch(changeMode('battle'));
-    //setChar(stats); // instead of doing this, pass something into reducer function to initialize state
+    //probably have a useeffect that gets boss information here
 
-    dispatch(initialize(stats));
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('/teams', {
+          params: {
+            username: currentUser.email
+          }
+        });
+        console.log(response);
+
+        dispatch(initializeTeam(response.data.rows));
+      } catch (error) {
+        console.log(error)
+      }
+
+    }
+
+    fetchData();
+
+    stats.turn = 'enemy';
+
+    dispatch(initializeEnemy(stats));
 
     //after the battle is over, wipe the reducer function
 
@@ -80,15 +105,15 @@ const Level = (props) => {
 
 
 
-
+  console.log(player);
 
 
 
   return(
     //maybe can reuse this. or make a separate component
     <>
-      <div><BattleTeam/></div>
-      <Enemy values = {stats}/>
+      <div><BattleTeam character = {player}/></div>
+      <Enemy values = {enemy}/>
     </>
   )
 

@@ -3,19 +3,43 @@ import { createSlice } from '@reduxjs/toolkit';
 export const battleReducer = createSlice({
   name: 'battle',
   initialState: {
-    value: {}
+    enemy: {},
+    player: []
   },
   reducers: {
-    initialize: (state, action) => {
+    initializeEnemy: (state, action) => {
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      state.value = action.payload
+      state.enemy = action.payload
+    },
+
+    initializeTeam: (state, action) => {
+      state.player = action.payload;
+    },
+
+    attack: (state, action) => {
+
+
+      state.enemy.health -= action.payload;
+    },
+
+    defend: (state, action) => {
+      //enemy attacks and player has to defend
+    },
+
+    modify: (state, action) => {
+      for(var i = 0; i < state.player.length; i++) {
+        state.player[i].width = '50px';
+        state.player[i].height = '50px';
+        state.player[i].margin = '5%';
+      }
+
     }
   }
 })
 
-export const { initialize } = battleReducer.actions
+export const { initializeEnemy, initializeTeam, attack, defend, modify } = battleReducer.actions
 
 export default battleReducer.reducer

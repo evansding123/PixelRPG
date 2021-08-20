@@ -4,6 +4,9 @@ import styled, { css } from 'styled-components';
 import { useAuth, currentUser } from '../../../src/contexts/AuthContext';
 import IndividualCharacter from '../IndividualCharacter.jsx';
 import DescriptionBox from '../DescriptionBox.jsx';
+import { useSelector, useDispatch } from 'react-redux'
+import { modify } from '../../reducers/battleReducer';
+
 
 
 const Members = styled.div`
@@ -31,47 +34,48 @@ const Name = styled.div`
 
 const BattleTeam = (props) => {
 
-  const [character, addChar] = useState([]);
+  const { character } = props;
   const { currentUser } = useAuth();
 
-  useEffect(() => {
+  const dispatch = useDispatch();
 
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('/teams', {
-          params: {
-            username: currentUser.email
-          }
-        });
-        console.log(response);
+  // useEffect(() => {
 
-        addChar(response.data.rows);
-      } catch (error) {
-        console.log(error)
-      }
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get('/teams', {
+  //         params: {
+  //           username: currentUser.email
+  //         }
+  //       });
+  //       console.log(response);
 
-    }
+  //       addChar(response.data.rows);
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
 
-    fetchData();
+  //   }
 
-  }, [])
+  //   fetchData();
+
+  // }, [])
+  dispatch((modify()));
 
   if(character.length !== 0) {
     return(
       <Members>
         {character.map((item) => {
-          item.width = '50px';
-          item.height = '50px';
-          item.margin = '5%';
-          return(
+          // item.width = '50px';
+          // item.height = '50px';
+          // item.margin = '5%';
 
+          return(
                 <Member>
                   <IndividualCharacter values = {item}/>
                   <Name>{item.name}</Name>
                   <DescriptionBox values = {item}/>
                 </Member>
-
-
           );
 
             //need to add a description, can i reuse the modal? probably just make a new one

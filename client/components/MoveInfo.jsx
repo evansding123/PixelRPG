@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { InfoButton } from '../styles/styles.jsx'
 import { useSelector, useDispatch } from 'react-redux'
 import { changeMode } from '../reducers/modeChange'
+import { attack } from '../reducers/battleReducer'
 
 
 
@@ -34,9 +35,14 @@ const MoveInfo =(props) => {
   const {name, mana_cost, power, color} = props.info;
 
   const mode = useSelector((state) => state.mode.value);
+  const initalState = useSelector((state) => state.battle.enemy);
+  const dispatch = useDispatch();
 
   const handleClick = () => {
-    console.log('clicked');
+    console.log('battle click');
+    //pass something into my reducer function
+    dispatch(attack(power));
+
   }
 
   return (
