@@ -12,16 +12,17 @@ import { modify } from '../../reducers/battleReducer';
 const Members = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
+  margin-top: 20px;
 
 `;
 
 const Member = styled.div`
   display: flex;
   justify-content: center;
-
-  min-width: 600px;
+  align-items: baseline;
+  min-width: 500px;
 
 
 `;

@@ -32,11 +32,14 @@ const MoveModal = styled.div`
 
 const MoveInfo =(props) => {
 
+  // const [damage, setDamage] = useState(-1);
+
   const {name, mana_cost, power, color, id_individual_character} = props.info;
 
   const mode = useSelector((state) => state.mode.value);
   const initalState = useSelector((state) => state.battle.enemy);
   const player = useSelector((state) => state.battle.player);
+
 
 
 
@@ -52,11 +55,21 @@ const MoveInfo =(props) => {
       id: id_individual_character
     }));
 
+    // setDamage(power);
+
   }
+
+  // if(!player[props.index].status) {
+  //   //this is basically wnen player attack
+  //   dispatch();
+
+  //   //sets redux damage to an amount, where level can access the change in redux damaage?
+  // }
 
 
 
     return (
+      <>
       <MoveSets color = {props.color}>
         {mode !== 'battle' && <InfoButton>{name}</InfoButton>}
         {mode === 'battle' && player[props.index].status && <InfoButton onClick = {handleClick}>{name}</InfoButton>}
@@ -64,6 +77,8 @@ const MoveInfo =(props) => {
         <MoveModal>cost: {mana_cost}</MoveModal>
         <MoveModal>power: {power}</MoveModal>
       </MoveSets>
+      {/* {!player[props.index].status && damage > 0 && <div>{`YOU DEALT ${damage} DAMAGE`}</div>} */}
+      </>
     )
 
 

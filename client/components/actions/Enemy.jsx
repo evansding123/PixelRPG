@@ -9,13 +9,13 @@ const Pic = styled.img`
 
   position: relative;
   margin: auto;
-  margin-left: ${props => props.margin};
-  height: ${props => props.height};
-  width: ${props => props.width};
-  margin-top: 10%;
   overflow: hidden;
   cursor: pointer;
 
+`;
+
+const HealthBar = styled.div`
+  margin: auto;
 `;
 
 
@@ -45,7 +45,7 @@ const Enemy = (props) => {
   } else {
     return(
       <>
-        <div>Health: {health}</div>
+        <HealthBar>Health: {health}</HealthBar>
         <Pic src = {picture} alt = 'enemy'></Pic>
       </>
     )

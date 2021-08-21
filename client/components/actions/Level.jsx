@@ -23,6 +23,23 @@ const Pic = styled.img`
 
 `;
 
+const LevelStructure = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Turn = styled.h3`
+  margin: auto;
+  color: blue;
+`;
+
+const EnemyTurn = styled.h3`
+  margin: auto;
+  color: #E96C6C;
+`;
+
 
 const Level = (props) => {
 
@@ -61,6 +78,8 @@ const Level = (props) => {
   const enemy = useSelector((state) => state.battle.enemy);
   const player = useSelector((state) => state.battle.player);
   const count = useSelector((state) => state.battle.count);
+  const damage = useSelector((state) => state.battle.damage);
+
   const dispatch = useDispatch();
 
   const { currentUser } = useAuth();
@@ -117,12 +136,14 @@ const Level = (props) => {
 
   return(
     //maybe can reuse this. or make a separate component
-    <>
-      {enemy.status === false && <div>YOUR TURN</div>}
-      {enemy.status === true && <div>ENEMY TURN</div>}
+    <LevelStructure>
+      {enemy.status === false && <Turn>YOUR TURN</Turn>}
+      {enemy.status === true && <EnemyTurn>ENEMY ATTACKS</EnemyTurn>}
+      <br></br>
       <Enemy values = {enemy}/>
+      {damage > 0 && <div>{`YOU DEALT ${damage} DAMAGE`}</div>}
       <div><BattleTeam character = {player}/></div>
-    </>
+    </LevelStructure>
   )
 
 

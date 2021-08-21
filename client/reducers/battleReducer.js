@@ -6,6 +6,7 @@ export const battleReducer = createSlice({
     enemy: {},
     player: [],
     count: 0,
+    damage: 0
   },
   reducers: {
     initializeEnemy: (state, action) => {
@@ -27,18 +28,22 @@ export const battleReducer = createSlice({
 
 
       state.enemy.health -= action.payload.power;
+
       // state.enemy.status = true;
       state.count++;
 
-
+      //finds the player that did the move and makes them unable to take another move
       for(var i = 0; i < state.player.length; i++) {
         if(state.player[i].id === action.payload.id) {
           state.player[i].status = false;
         }
       }
 
+      state.damage = action.payload.power;
+
 
       if(state.count >= state.player.length) {
+        state.damage = 0;
         state.enemy.status = true;
       }
 
@@ -61,6 +66,10 @@ export const battleReducer = createSlice({
 
     },
 
+    displayDamage: (state, action) => {
+
+    },
+
     modify: (state) => {
       for(var i = 0; i < state.player.length; i++) {
         state.player[i].width = '50px';
@@ -72,6 +81,6 @@ export const battleReducer = createSlice({
   }
 })
 
-export const { initializeEnemy, initializeTeam, attack, defend, modify } = battleReducer.actions
+export const { initializeEnemy, initializeTeam, attack, defend, modify, displayDamage } = battleReducer.actions
 
 export default battleReducer.reducer
