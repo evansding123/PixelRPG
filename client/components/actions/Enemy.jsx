@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux'
-import { defend } from '../../reducers/battleReducer'
+import { defend, resetDamage } from '../../reducers/battleReducer'
 
 
 
@@ -30,11 +30,15 @@ const Enemy = (props) => {
 
 
   if(enemy.status === true) {
+    //dispatch(resetDamage());
+    setTimeout(function() {
+      dispatch(resetDamage());
+    }, 1000)
     setTimeout(function() {
       dispatch(defend({
         power: attack,
       }))
-    }, 2000)
+    }, 3000)
   }
 
 

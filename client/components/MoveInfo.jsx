@@ -50,6 +50,7 @@ const MoveInfo =(props) => {
   const handleClick = () => {
     console.log('battle click');
     //pass something into my reducer function
+
     dispatch(attack({
       power: power,
       id: id_individual_character

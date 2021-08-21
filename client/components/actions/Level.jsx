@@ -142,6 +142,8 @@ const Level = (props) => {
       <br></br>
       <Enemy values = {enemy}/>
       {damage > 0 && <div>{`YOU DEALT ${damage} DAMAGE`}</div>}
+      {damage > 0 && enemy.status === true && <div>{`ENEMY DEALT DEALT ${damage} DAMAGE`}</div>}
+
       <div><BattleTeam character = {player}/></div>
     </LevelStructure>
   )

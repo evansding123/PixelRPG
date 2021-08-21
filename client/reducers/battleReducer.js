@@ -43,7 +43,7 @@ export const battleReducer = createSlice({
 
 
       if(state.count >= state.player.length) {
-        state.damage = 0;
+        //state.damage = 0;
         state.enemy.status = true;
       }
 
@@ -54,20 +54,24 @@ export const battleReducer = createSlice({
 
     defend: (state, action) => {
       //enemy attacks and player has to defend
+
       let random = Math.floor(Math.random() * state.player.length);
       state.player[random].health -= action.payload.power;
+      state.damage = action.payload.power;
       state.enemy.status = false;
       state.count = 0;
       for(var i = 0; i < state.player.length; i++) {
         state.player[i].status = true;
       }
 
+      state.damage = 0;
+
 
 
     },
 
-    displayDamage: (state, action) => {
-
+    resetDamage: (state) => {
+      state.damage = 0;
     },
 
     modify: (state) => {
@@ -81,6 +85,6 @@ export const battleReducer = createSlice({
   }
 })
 
-export const { initializeEnemy, initializeTeam, attack, defend, modify, displayDamage } = battleReducer.actions
+export const { initializeEnemy, initializeTeam, attack, defend, modify, resetDamage } = battleReducer.actions
 
 export default battleReducer.reducer
