@@ -6,7 +6,9 @@ export const battleReducer = createSlice({
     enemy: {},
     player: [],
     count: 0,
-    damage: 0
+    damage: 0,
+    enemyDamage: 0,
+    damagedPlayer: {}
   },
   reducers: {
     initializeEnemy: (state, action) => {
@@ -54,17 +56,24 @@ export const battleReducer = createSlice({
 
     defend: (state, action) => {
       //enemy attacks and player has to defend
-
+      //damages random player
       let random = Math.floor(Math.random() * state.player.length);
+
       state.player[random].health -= action.payload.power;
-      state.damage = action.payload.power;
-      state.enemy.status = false;
+
+      //finds player who got damaged
+      state.damagedPlayer = state.player[random];
+      //saves state of enenmy damage to display
+      state.enemyDamage = action.payload.power;
+      //gives turn back to player
       state.count = 0;
+      state.enemy.status = false;
+
       for(var i = 0; i < state.player.length; i++) {
         state.player[i].status = true;
       }
 
-      state.damage = 0;
+
 
 
 
@@ -72,6 +81,11 @@ export const battleReducer = createSlice({
 
     resetDamage: (state) => {
       state.damage = 0;
+
+    },
+
+    resetEnemyDamage: (state) => {
+      state.enemyDamage = 0;
     },
 
     modify: (state) => {
@@ -85,6 +99,6 @@ export const battleReducer = createSlice({
   }
 })
 
-export const { initializeEnemy, initializeTeam, attack, defend, modify, resetDamage } = battleReducer.actions
+export const { initializeEnemy, initializeTeam, attack, defend, modify, resetDamage, resetEnemyDamage } = battleReducer.actions
 
 export default battleReducer.reducer

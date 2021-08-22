@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { InfoButton, InactiveButton } from '../styles/styles.jsx'
 import { useSelector, useDispatch } from 'react-redux'
 import { changeMode } from '../reducers/modeChange'
-import { attack } from '../reducers/battleReducer'
+import { attack, resetEnemyDamage } from '../reducers/battleReducer'
 
 
 
@@ -51,10 +51,14 @@ const MoveInfo =(props) => {
     console.log('battle click');
     //pass something into my reducer function
 
+    dispatch(resetEnemyDamage());
+
     dispatch(attack({
       power: power,
       id: id_individual_character
     }));
+
+
 
     // setDamage(power);
 

@@ -79,6 +79,8 @@ const Level = (props) => {
   const player = useSelector((state) => state.battle.player);
   const count = useSelector((state) => state.battle.count);
   const damage = useSelector((state) => state.battle.damage);
+  const enemyDamage = useSelector((state) => state.battle.enemyDamage)
+  const damagedPlayer = useSelector((state) => state.battle.damagedPlayer)
 
   const dispatch = useDispatch();
 
@@ -142,8 +144,8 @@ const Level = (props) => {
       <br></br>
       <Enemy values = {enemy}/>
       {damage > 0 && <div>{`YOU DEALT ${damage} DAMAGE`}</div>}
-      {damage > 0 && enemy.status === true && <div>{`ENEMY DEALT DEALT ${damage} DAMAGE`}</div>}
-
+      {enemyDamage > 0 && <div>{`Enemy Dealt ${enemyDamage} Damage To ${damagedPlayer.name}`}</div>}
+      {/* instead of using damage you should use enemy damage */}
       <div><BattleTeam character = {player}/></div>
     </LevelStructure>
   )
