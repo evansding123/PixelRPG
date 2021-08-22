@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useAuth, currentUser } from '../../../src/contexts/AuthContext';
 import { useSelector, useDispatch } from 'react-redux'
 import { changeMode } from '../../reducers/modeChange'
-import { initializeEnemy, initializeTeam, modify } from '../../reducers/battleReducer';
+import { initializeEnemy, initializeTeam, modify, resetDamage, resetEnemyDamage } from '../../reducers/battleReducer';
 import BattleTeam from './BattleTeam.jsx';
 import Team from '../Team.jsx';
 import Enemy from './Enemy.jsx';
@@ -129,26 +129,36 @@ const Level = (props) => {
 
   dispatch((modify()));
 
-  // if(count >= player.length) {
-  //   //disable button
-  //   dispatch()
-  // }
+  if(enemy.health <= 0) {
+    //later on, i can add something that adds exp and sends a request to save data
+    //should have another function that resets all state to normal
+    dispatch(resetDamage());
+    dispatch(resetEnemyDamage());
+    return (
+      <LevelStructure>
+        <div>YOU HAVE DEFEATED THE ENEMY</div>
+        <div><BattleTeam character = {player}/></div>
+      </LevelStructure>
+    )
+  } else {
+    return(
+      //maybe can reuse this. or make a separate component
+      <LevelStructure>
+        {enemy.status === false && <Turn>YOUR TURN</Turn>}
+        {enemy.status === true && <EnemyTurn>ENEMY ATTACKS</EnemyTurn>}
+        <br></br>
+        <Enemy values = {enemy}/>
+        {damage > 0 && <div>{`YOU DEALT ${damage} DAMAGE`}</div>}
+        {enemyDamage > 0 && <div>{`Enemy Dealt ${enemyDamage} Damage To ${damagedPlayer.name}`}</div>}
+        {/* instead of using damage you should use enemy damage */}
+        <div><BattleTeam character = {player}/></div>
+      </LevelStructure>
+    )
+  }
 
 
 
-  return(
-    //maybe can reuse this. or make a separate component
-    <LevelStructure>
-      {enemy.status === false && <Turn>YOUR TURN</Turn>}
-      {enemy.status === true && <EnemyTurn>ENEMY ATTACKS</EnemyTurn>}
-      <br></br>
-      <Enemy values = {enemy}/>
-      {damage > 0 && <div>{`YOU DEALT ${damage} DAMAGE`}</div>}
-      {enemyDamage > 0 && <div>{`Enemy Dealt ${enemyDamage} Damage To ${damagedPlayer.name}`}</div>}
-      {/* instead of using damage you should use enemy damage */}
-      <div><BattleTeam character = {player}/></div>
-    </LevelStructure>
-  )
+
 
 
 }

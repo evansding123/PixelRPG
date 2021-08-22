@@ -68,9 +68,6 @@ const BattleTeam = (props) => {
     return(
       <Members>
         {character.map((item, index) => {
-          // item.width = '50px';
-          // item.height = '50px';
-          // item.margin = '5%';
 
           return(
                 <Member>

@@ -58,18 +58,14 @@ const Enemy = (props) => {
   // }
 
 
-  if(enemy.health <= 0) {
-    return (
-      <div>YOU HAVE DEFEATED THE ENEMY</div>
-    )
-  } else {
+
     return(
       <>
         <HealthBar>Health: {health}</HealthBar>
         <Pic src = {picture} alt = 'enemy'></Pic>
       </>
     )
-  }
+
 
 
 

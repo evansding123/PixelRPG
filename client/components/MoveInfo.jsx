@@ -55,6 +55,7 @@ const MoveInfo =(props) => {
 
     dispatch(attack({
       power: power,
+      mana: mana_cost,
       id: id_individual_character
     }));
 

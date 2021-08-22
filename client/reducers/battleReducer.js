@@ -30,13 +30,13 @@ export const battleReducer = createSlice({
 
 
       state.enemy.health -= action.payload.power;
-
       // state.enemy.status = true;
       state.count++;
 
       //finds the player that did the move and makes them unable to take another move
       for(var i = 0; i < state.player.length; i++) {
         if(state.player[i].id === action.payload.id) {
+          state.player[i].mana -= action.payload.mana;
           state.player[i].status = false;
         }
       }
@@ -63,6 +63,7 @@ export const battleReducer = createSlice({
 
       //finds player who got damaged
       state.damagedPlayer = state.player[random];
+
       //saves state of enenmy damage to display
       state.enemyDamage = action.payload.power;
       //gives turn back to player
@@ -77,11 +78,14 @@ export const battleReducer = createSlice({
 
 
 
+
+
     },
 
     resetDamage: (state) => {
       state.damage = 0;
-
+      let color = state.damagedPlayer.color;
+      state.damagedPlayer.color = 'red';
     },
 
     resetEnemyDamage: (state) => {
