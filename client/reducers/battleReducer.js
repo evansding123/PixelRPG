@@ -8,7 +8,8 @@ export const battleReducer = createSlice({
     count: 0,
     damage: 0,
     enemyDamage: 0,
-    damagedPlayer: {}
+    damagedPlayer: {},
+    battleState: 'red'
   },
   reducers: {
     initializeEnemy: (state, action) => {
@@ -63,6 +64,10 @@ export const battleReducer = createSlice({
 
       //finds player who got damaged
       state.damagedPlayer = state.player[random];
+      if(state.player[random].health <= 0) {
+        state.player[random].color = '#606060';
+        state.player[random].status = false;
+      }
 
       //saves state of enenmy damage to display
       state.enemyDamage = action.payload.power;
@@ -71,7 +76,10 @@ export const battleReducer = createSlice({
       state.enemy.status = false;
 
       for(var i = 0; i < state.player.length; i++) {
-        state.player[i].status = true;
+        if(state.player[i].color !== '#606060') {
+          state.player[i].status = true;
+        }
+
       }
 
 
@@ -84,12 +92,15 @@ export const battleReducer = createSlice({
 
     resetDamage: (state) => {
       state.damage = 0;
-      let color = state.damagedPlayer.color;
-      state.damagedPlayer.color = 'red';
+
     },
 
     resetEnemyDamage: (state) => {
       state.enemyDamage = 0;
+    },
+
+    changeBattleState: (state, action) => {
+
     },
 
     modify: (state) => {
@@ -103,6 +114,6 @@ export const battleReducer = createSlice({
   }
 })
 
-export const { initializeEnemy, initializeTeam, attack, defend, modify, resetDamage, resetEnemyDamage } = battleReducer.actions
+export const { initializeEnemy, initializeTeam, attack, defend, modify, resetDamage, resetEnemyDamage, changeBattleState } = battleReducer.actions
 
 export default battleReducer.reducer

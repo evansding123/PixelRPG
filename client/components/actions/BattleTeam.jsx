@@ -5,7 +5,7 @@ import { useAuth, currentUser } from '../../../src/contexts/AuthContext';
 import IndividualCharacter from '../IndividualCharacter.jsx';
 import DescriptionBox from '../DescriptionBox.jsx';
 import { useSelector, useDispatch } from 'react-redux'
-import { modify } from '../../reducers/battleReducer';
+import { modify, changeBattleState } from '../../reducers/battleReducer';
 
 
 
@@ -39,6 +39,7 @@ const BattleTeam = (props) => {
   const { character } = props;
   const { currentUser } = useAuth();
 
+
   const dispatch = useDispatch();
 
   // useEffect(() => {
@@ -62,6 +63,8 @@ const BattleTeam = (props) => {
   //   fetchData();
 
   // }, [])
+
+
 
 
   if(character.length !== 0) {
