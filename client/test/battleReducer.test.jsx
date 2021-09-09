@@ -1,5 +1,15 @@
 //import Level from '../components/actions/Level.jsx';
-import reducer, { initializeEnemy } from '../reducers/battleReducer';
+import reducer, { initializeEnemy, initializeTeam, attack, defend } from '../reducers/battleReducer';
+
+const initialState = {
+  enemy: {},
+  player: [],
+  count: 0,
+  damage: 0,
+  enemyDamage: 0,
+  damagedPlayer: {},
+  battleState: 'red'
+}
 
 
 
@@ -17,7 +27,7 @@ test('should return the initial state', () => {
   )
 })
 
-test('should update the enemy part of state', () => {
+test('should update the enemy part of global state', () => {
 
   const previousState = {
     enemy: {},
@@ -30,66 +40,14 @@ test('should update the enemy part of state', () => {
   };
   const stats = {
 
-    level : 1,
-    exp : 0,
-    mana : 5,
     health : 10,
-    picture : 'testtext',
-    name : 'demon',
-    index : 1,
-    range  : 1,
-    attack : 5,
-    defense : 5,
-    speed : 10,
-    width : '10%',
-    height : '10vh',
-    initial : true,
-    moveSet: [
-      {
-        moveName: 'punch',
-        power: 1,
-        cost: 1,
-      },
-      {
-        moveName: 'kick',
-        power: 2,
-        cost: 2,
-      },
-    ]
 
 }
 
   expect(reducer(previousState, initializeEnemy(stats))).toEqual(
     {
       enemy: {
-
-        level : 1,
-        exp : 0,
-        mana : 5,
         health : 10,
-        picture : 'testtext',
-        name : 'demon',
-        index : 1,
-        range  : 1,
-        attack : 5,
-        defense : 5,
-        speed : 10,
-        width : '10%',
-        height : '10vh',
-        initial : true,
-        moveSet: [
-          {
-            moveName: 'punch',
-            power: 1,
-            cost: 1,
-          },
-          {
-            moveName: 'kick',
-            power: 2,
-            cost: 2,
-          },
-        ]
-
     },
       player: [],
       count: 0,
@@ -101,11 +59,13 @@ test('should update the enemy part of state', () => {
   )
 })
 
-test('should add a team to global state', () => {
-  expect(reducer(undefined, {})).toEqual(
+test('should add a team to global state and set status to true', () => {
+  const players = [{attack : 5}]
+
+  expect(reducer(initialState, initializeTeam(players))).toEqual(
     {
       enemy: {},
-      player: [],
+      player: [{attack: 5, status: true}],
       count: 0,
       damage: 0,
       enemyDamage: 0,
@@ -114,3 +74,56 @@ test('should add a team to global state', () => {
     }
   )
 })
+
+
+test('should solve attack logic', () => {
+  const previousState = {
+    enemy: {health: 5},
+    player: [{attack: 5, status: true, mana: 5}],
+    count: 0,
+    damage: 0,
+    enemyDamage: 0,
+    damagedPlayer: {},
+    battleState: 'red'
+  }
+
+
+  expect(reducer(previousState, attack({power: 1, mana: 1}))).toEqual(
+    {
+      enemy: {health: 4, status: true},
+      player: [{attack: 5, mana: 4, status: false}],
+      count: 1,
+      damage: 1,
+      enemyDamage: 0,
+      damagedPlayer: {},
+      battleState: 'red'
+    }
+  )
+})
+
+test('should solve defend logic', () => {
+  const previousState = {
+    enemy: {health: 5},
+    player: [{health: 5, attack: 5, status: true, mana: 5}],
+    count: 0,
+    damage: 0,
+    enemyDamage: 0,
+    damagedPlayer: {},
+    battleState: 'red'
+  }
+
+
+  expect(reducer(previousState, defend({power: 1}))).toEqual(
+    {
+      enemy: {health: 5, status: false},
+      player: [{health: 4, attack: 5, mana: 5, status: true}],
+      count: 0,
+      damage: 0,
+      enemyDamage: 1,
+      damagedPlayer: {health: 4, attack: 5, mana: 5, status: true},
+      battleState: 'red'
+    }
+  )
+})
+
+
