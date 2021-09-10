@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Modal from 'react-modal';
 import {Name, InfoButton} from '../styles/styles.jsx';
 
-Modal.setAppElement('#app');
+//Modal.setAppElement('#app');
 
 
 
