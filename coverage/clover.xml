@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1631226077195" clover="3.2.0">
-  <project timestamp="1631226077195" name="All files">
-    <metrics statements="33" coveredstatements="25" conditionals="8" coveredconditionals="4" methods="8" coveredmethods="4" elements="49" coveredelements="33" complexity="0" loc="33" ncloc="33" packages="1" files="1" classes="1"/>
+<coverage generated="1631238663798" clover="3.2.0">
+  <project timestamp="1631238663798" name="All files">
+    <metrics statements="36" coveredstatements="28" conditionals="8" coveredconditionals="4" methods="9" coveredmethods="5" elements="53" coveredelements="37" complexity="0" loc="36" ncloc="36" packages="1" files="2" classes="2"/>
     <file name="battleReducer.js" path="/Users/evansding/Desktop/GreenOcean/PixelRPG/client/reducers/battleReducer.js">
       <metrics statements="33" coveredstatements="25" conditionals="8" coveredconditionals="4" methods="8" coveredmethods="4"/>
       <line num="3" count="1" type="stmt"/>
@@ -37,6 +37,12 @@
       <line num="109" count="0" type="stmt"/>
       <line num="110" count="0" type="stmt"/>
       <line num="117" count="1" type="stmt"/>
+    </file>
+    <file name="modeChange.js" path="/Users/evansding/Desktop/GreenOcean/PixelRPG/client/reducers/modeChange.js">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>

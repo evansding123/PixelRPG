@@ -64,3 +64,17 @@ BRDA:79,3,1,0
 BRF:8
 BRH:4
 end_of_record
+TN:
+SF:client/reducers/modeChange.js
+FN:9,(anonymous_0)
+FNF:1
+FNH:1
+FNDA:1,(anonymous_0)
+DA:3,1
+DA:14,1
+DA:19,1
+LF:3
+LH:3
+BRF:0
+BRH:0
+end_of_record
