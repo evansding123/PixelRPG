@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import {Name, InfoButton} from '../styles/styles.jsx';
 
 //Modal.setAppElement('#app');
+//only sets app element when its not in a testing env - otherwise it throws an error in testing environment
 if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#app');
 
 
