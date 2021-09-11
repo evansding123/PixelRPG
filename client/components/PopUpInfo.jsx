@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import Modal from 'react-modal';
 import {Name, InfoButton} from '../styles/styles.jsx';
 
-Modal.setAppElement('#app');
+//Modal.setAppElement('#app');
+if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#app');
 
 
 
@@ -55,6 +56,7 @@ const PopUpInfo = (props) => {
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal"
+        ariaHideApp = {!process.env.NODE_ENV === 'test'}
     >
       <Name>{name}</Name>
       <br></br>
