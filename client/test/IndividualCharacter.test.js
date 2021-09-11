@@ -1,24 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
-import {render, fireEvent, waitFor, screen} from '@testing-library/react'
+import {render, fireEvent, waitFor, screen, cleanup} from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect';
 import { act } from 'react-dom/test-utils';
 import { useAuth, currentUser, AuthProvider } from '../../src/contexts/AuthContext'
+import { authMock } from './setupTests.js';
+import Firebase from '../../src/firebase.js'
 import IndividualCharacter from '../components/IndividualCharacter.jsx';
 
 
-let container;
+// Firebase.auth = authMock;
+// console.log(authMock);
 
-beforeEach(() => {
-  container = document.createElement('div');
-  document.body.appendChild(container);
-});
+// let container;
 
-afterEach(() => {
-  document.body.removeChild(container);
-  container = null;
-});
-
+afterEach(cleanup);
 
 
 const item = {
@@ -26,35 +22,34 @@ const item = {
   defense: 5
 }
 
-const value = {
-  currentUser
-
-}
 
 //jest.mock('../components/IndividualCharacter.jsx');
 
-test('should return a picture', () => {
+it('should return a picture', async () => {
   // act(() => {
   //   ReactDOM.render(
   //     <AuthProvider>
   //         <IndividualCharacter values = {item}></IndividualCharacter>
   //     </AuthProvider>, container);
   // });
+  const handleClick = jest.fn()
 
-  act(() => {
-    render(
-      <AuthProvider value = {value}>
-          <IndividualCharacter values = {item}></IndividualCharacter>
-      </AuthProvider>
-    );
-  })
-
+  const { getByAltText, debug } = render(
+    <AuthProvider>
+        <IndividualCharacter values = {item}></IndividualCharacter>
+    </AuthProvider>
+  );
 
 
 
+  const test = await waitFor(() => getByAltText('character'));
+
+  //debug();
 
 
+  expect(test).toBeInTheDocument();
+  fireEvent.click(test);
+  debug();
 
-
-  expect(screen.getByAltText('').toBeInTheDocument());
+  //expect(handleClick).toHaveBeenCalledTimes(1);
 })
