@@ -4,15 +4,10 @@ import {render, fireEvent, waitFor, screen, cleanup} from '@testing-library/reac
 import '@testing-library/jest-dom/extend-expect';
 import { act } from 'react-dom/test-utils';
 import { useAuth, currentUser, AuthProvider } from '../../src/contexts/AuthContext'
-import { authMock } from './setupTests.js';
-import Firebase from '../../src/firebase.js'
 import IndividualCharacter from '../components/IndividualCharacter.jsx';
 
 
-// Firebase.auth = authMock;
-// console.log(authMock);
 
-// let container;
 
 afterEach(cleanup);
 
@@ -25,14 +20,14 @@ const item = {
 
 //jest.mock('../components/IndividualCharacter.jsx');
 
-it('should return a picture', async () => {
+it('should return a picture and a click should open a modal', async () => {
   // act(() => {
   //   ReactDOM.render(
   //     <AuthProvider>
   //         <IndividualCharacter values = {item}></IndividualCharacter>
   //     </AuthProvider>, container);
   // });
-  const handleClick = jest.fn()
+
 
   const { getByAltText, debug } = render(
     <AuthProvider>
@@ -44,7 +39,6 @@ it('should return a picture', async () => {
 
   const test = await waitFor(() => getByAltText('character'));
 
-  //debug();
 
 
   expect(test).toBeInTheDocument();

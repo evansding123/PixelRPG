@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1631324298394" clover="3.2.0">
-  <project timestamp="1631324298394" name="All files">
-    <metrics statements="113" coveredstatements="78" conditionals="18" coveredconditionals="10" methods="34" coveredmethods="15" elements="165" coveredelements="103" complexity="0" loc="113" ncloc="113" packages="7" files="9" classes="9"/>
+<coverage generated="1631325469515" clover="3.2.0">
+  <project timestamp="1631325469515" name="All files">
+    <metrics statements="105" coveredstatements="76" conditionals="18" coveredconditionals="10" methods="27" coveredmethods="15" elements="150" coveredelements="101" complexity="0" loc="105" ncloc="105" packages="6" files="8" classes="8"/>
     <package name="PixelRPG">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="firebase.config.js" path="/Users/evansding/Desktop/GreenOcean/PixelRPG/firebase.config.js">
@@ -115,20 +115,6 @@
         <line num="43" count="1" type="stmt"/>
         <line num="56" count="1" type="stmt"/>
         <line num="69" count="1" type="stmt"/>
-      </file>
-    </package>
-    <package name="PixelRPG.client.test">
-      <metrics statements="8" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="0"/>
-      <file name="setupTests.js" path="/Users/evansding/Desktop/GreenOcean/PixelRPG/client/test/setupTests.js">
-        <metrics statements="8" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="0"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
       </file>
     </package>
     <package name="PixelRPG.src">
