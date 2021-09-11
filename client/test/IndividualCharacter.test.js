@@ -50,6 +50,7 @@ it('should return a picture', async () => {
   expect(test).toBeInTheDocument();
   fireEvent.click(test);
   debug();
+  expect(screen.getByLabelText("Example Modal")).toBeInTheDocument();
 
   //expect(handleClick).toHaveBeenCalledTimes(1);
 })
