@@ -41,7 +41,7 @@ describe('character page', () => {
 
     const test = await waitFor(() => getByAltText('character'));
     fireEvent.click(test);
-    debug();
+    //debug();
     expect(screen.getByLabelText("Example Modal")).toBeInTheDocument();
     expect(screen.getByText('Attack: 5')).toBeInTheDocument();
     expect(screen.getByText('Defense: 5')).toBeInTheDocument();
