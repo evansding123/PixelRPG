@@ -55,9 +55,25 @@ describe('enemy', () => {
     );
 
     const test = await waitFor(() => getByAltText('enemy'));
-    debug();
+
     expect(test).toBeInTheDocument();
   })
+
+
+  test ('should return text with health of 10', async () => {
+    const { getByAltText, debug } = render(
+          <Provider store = {store}>
+            <Enemy values = {stats}></Enemy>
+          </Provider>
+
+    );
+
+    const test = await waitFor(() => getByAltText('enemy'));
+
+    expect(screen.getByText('Health: 10')).toBeInTheDocument();
+  })
+
+
 
 
 
