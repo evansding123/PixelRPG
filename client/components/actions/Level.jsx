@@ -43,36 +43,38 @@ const EnemyTurn = styled.h3`
 
 const Level = (props) => {
 
-  const stats = {
+  const {stats} = props;
 
-    level : 1,
-    exp : 0,
-    mana : 5,
-    health : 10,
-    picture : demon,
-    name : 'demon',
-    index : 1,
-    range  : 1,
-    attack : 5,
-    defense : 5,
-    speed : 10,
-    width : '10%',
-    height : '10vh',
-    initial : true,
-    moveSet: [
-      {
-        moveName: 'punch',
-        power: 1,
-        cost: 1,
-      },
-      {
-        moveName: 'kick',
-        power: 2,
-        cost: 2,
-      },
-    ]
+//   const stats = {
 
-}
+//     level : 1,
+//     exp : 0,
+//     mana : 5,
+//     health : 10,
+//     picture : demon,
+//     name : 'demon',
+//     index : 1,
+//     range  : 1,
+//     attack : 5,
+//     defense : 5,
+//     speed : 10,
+//     width : '10%',
+//     height : '10vh',
+//     initial : true,
+//     moveSet: [
+//       {
+//         moveName: 'punch',
+//         power: 1,
+//         cost: 1,
+//       },
+//       {
+//         moveName: 'kick',
+//         power: 2,
+//         cost: 2,
+//       },
+//     ]
+
+// }
 
   const mode = useSelector((state) => state.mode.value);
   const enemy = useSelector((state) => state.battle.enemy);
@@ -128,7 +130,7 @@ const Level = (props) => {
 
 
   dispatch((modify()));
-
+  //should i put this inside enemy?
   if(enemy.health <= 0) {
     //later on, i can add something that adds exp and sends a request to save data
     //should have another function that resets all state to normal
@@ -150,7 +152,6 @@ const Level = (props) => {
         <Enemy values = {enemy}/>
         {damage > 0 && <div>{`YOU DEALT ${damage} DAMAGE`}</div>}
         {enemyDamage > 0 && <div>{`Enemy Dealt ${enemyDamage} Damage To ${damagedPlayer.name}`}</div>}
-        {/* instead of using damage you should use enemy damage */}
         <div><BattleTeam character = {player}/></div>
       </LevelStructure>
     )
