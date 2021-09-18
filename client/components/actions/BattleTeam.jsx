@@ -73,10 +73,10 @@ const BattleTeam = (props) => {
         {character.map((item, index) => {
 
           return(
-                <Member>
-                  <IndividualCharacter values = {item}/>
-                  <Name>{item.name}</Name>
-                  <DescriptionBox values = {item} index = {index}/>
+                <Member key = {index}>
+                  <IndividualCharacter values = {item} key = {item}/>
+                  <Name key = {item.name}>{item.name}</Name>
+                  <DescriptionBox values = {item} index = {index} key = {item.id}/>
                 </Member>
           );
 

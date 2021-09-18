@@ -58,7 +58,7 @@ const DescriptionBox = (props) => {
 
   const [clicked, setClick] = useState(false);
 
-  const {name, health, range, attack, defense, speed, initial, moveSet, color, mana} = props.values;
+  const {name, health, range, attack, defense, speed, initial, moveSet, color, mana, exp, level, id} = props.values;
 
   const handleClick = ()=> {
     setClick(!clicked);
@@ -72,12 +72,13 @@ const DescriptionBox = (props) => {
     <>
     <CharStats color = {color}>
       <Stats>
-
+        <div>Level: {level}</div>
+        <div>Exp: {exp}</div>
         <div>Health: {health}</div>
         <div>Mana: {mana}</div>
         <div>Attack: {attack}</div>
         <div>Defense: {defense}</div>
-        <div>Speed: {speed}</div>
+
 
       </Stats>
     </CharStats>
@@ -85,9 +86,9 @@ const DescriptionBox = (props) => {
      {/* <div> Moves: </div> */}
        {moveSet.map((item, index) => {
          return (
-           <Move>
+           <Move key = {index}>
              {/* <div>{item.name}</div> */}
-             {<MoveInfo color = {color} info = {item} index = {props.index}/>}
+             {<MoveInfo color = {color} info = {item} index = {props.index} key = {item.id} />}
            </Move>
          )
        })}
