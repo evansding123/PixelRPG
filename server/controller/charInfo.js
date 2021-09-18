@@ -39,7 +39,26 @@ module.exports = {
       res.status(404).send(error);
     }
 
+  },
+
+
+  editCharInfo : async (req, res) => {
+    try {
+      let array = [];
+      for(keys in req.query) {
+        array.push(req.query[keys]);
+      }
+      console.log(req.query);
+
+      const queryData = await models.getCharInfo(array);
+      res.status(200).send(queryData);
+
+    } catch(error) {
+      res.status(404).send(error);
+    }
+
   }
+
 
 
 }

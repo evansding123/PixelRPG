@@ -29,8 +29,8 @@ export const battleReducer = createSlice({
 
     attack: (state, action) => {
 
-
-      state.enemy.health -= action.payload.power;
+      let damage = Math.ceil(action.payload.power);
+      state.enemy.health -= damage;
       // state.enemy.status = true;
       state.count++;
 
@@ -42,7 +42,7 @@ export const battleReducer = createSlice({
         }
       }
 
-      state.damage = action.payload.power;
+      state.damage = damage;
 
 
       if(state.count >= state.player.length) {
@@ -60,7 +60,11 @@ export const battleReducer = createSlice({
       //damages random player
       let random = Math.floor(Math.random() * state.player.length);
 
-      state.player[random].health -= action.payload.power;
+
+      //defender algo
+      let damage = Math.ceil(action.payload.power/state.player[random].defense);
+
+      state.player[random].health -= damage;
 
       //finds player who got damaged
       state.damagedPlayer = state.player[random];
@@ -70,7 +74,7 @@ export const battleReducer = createSlice({
       }
 
       //saves state of enenmy damage to display
-      state.enemyDamage = action.payload.power;
+      state.enemyDamage = damage;
       //gives turn back to player
       state.count = 0;
       state.enemy.status = false;
@@ -99,7 +103,21 @@ export const battleReducer = createSlice({
       state.enemyDamage = 0;
     },
 
-    changeBattleState: (state, action) => {
+    afterBattle: (state) => {
+
+      //console.log(state.player[0].exp++);
+
+
+      for(var i = 0; i < state.player.length; i++) {
+
+        state.player[i].exp = Math.ceil(state.enemy.exp / state.player.length);
+        if(state.player[i].exp > 1) {
+          //placeholder exp cap of 10
+          state.player[i].level++;
+          state.player[i].exp = 0;
+        }
+      }
+
 
     },
 
@@ -114,6 +132,6 @@ export const battleReducer = createSlice({
   }
 })
 
-export const { initializeEnemy, initializeTeam, attack, defend, modify, resetDamage, resetEnemyDamage, changeBattleState } = battleReducer.actions
+export const { initializeEnemy, initializeTeam, attack, defend, modify, resetDamage, resetEnemyDamage, afterBattle } = battleReducer.actions
 
 export default battleReducer.reducer

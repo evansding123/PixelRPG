@@ -42,7 +42,7 @@ const Adventure = (props) => {
   const boss = {
 
     level : 1,
-    exp : 0,
+    exp : 5,
     mana : 5,
     health : 10,
     picture : demon,

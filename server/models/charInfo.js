@@ -99,6 +99,11 @@ module.exports = {
       throw(error);
     }
 
+  },
+
+  editCharInfo : async(values = []) => {
+
+    console.log(values);
   }
 
 
