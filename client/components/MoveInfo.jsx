@@ -32,13 +32,21 @@ const MoveModal = styled.div`
 
 const MoveInfo =(props) => {
 
-  // const [damage, setDamage] = useState(-1);
+  const [damage, setDamage] = useState(-1);
 
   //const {name, mana_cost, power, color, id_individual_character} = props.info;
+
+
+  //props.index is the index of the individual character, index should be the name of the move
+
 
   const mode = useSelector((state) => state.mode.value);
   const initalState = useSelector((state) => state.battle.enemy);
   const player = useSelector((state) => state.battle.player);
+
+  const {power, mana_cost, id, name} = player[props.character].moveSet[props.moveIndex];
+
+
 
 
 
@@ -56,7 +64,7 @@ const MoveInfo =(props) => {
     dispatch(attack({
       power: power,
       mana: mana_cost,
-      id: id_individual_character
+      id: id
     }));
 
 
@@ -76,13 +84,12 @@ const MoveInfo =(props) => {
 
     return (
       <>
-      <MoveSets color = {props.color}>
-        <InfoButton onClick = {handleClick}>{name}</InfoButton>}
-        {/* {mode !== 'battle' && <InfoButton>{name}</InfoButton>}
-        {mode === 'battle' && player[props.index].status && <InfoButton onClick = {handleClick}>{name}</InfoButton>} */}
-        {/* {mode === 'battle' && !player[props.index].status && <InactiveButton>{name}</InactiveButton>}
+      <MoveSets>
+        {mode !== 'battle' && <InfoButton>{name}</InfoButton>}
+        {mode === 'battle' && player[props.character].status && <InfoButton onClick = {handleClick}>{name}</InfoButton>}
+        {mode === 'battle' && !player[props.character].status && <InactiveButton>{name}</InactiveButton>}
         <MoveModal>cost: {mana_cost}</MoveModal>
-        <MoveModal>power: {power}</MoveModal> */}
+        <MoveModal>power: {power}</MoveModal>
       </MoveSets>
       {/* {!player[props.index].status && damage > 0 && <div>{`YOU DEALT ${damage} DAMAGE`}</div>} */}
       </>

@@ -88,7 +88,7 @@ const DescriptionBox = (props) => {
          return (
            <Move key = {index}>
              {/* <div>{item.name}</div> */}
-             {<MoveInfo color = {color} info = {item} index = {props.index} key = {item.id} />}
+             {<MoveInfo color = {color} info = {item} moveIndex = {index} character = {props.index} key = {item.id} />}
            </Move>
          )
        })}
