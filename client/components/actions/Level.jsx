@@ -130,6 +130,18 @@ const Level = (props) => {
   }, [])
 
 
+  useEffect(() => {
+    if(enemy.health <= 0) {
+      //later on, i can add something that adds exp and sends a request to save data
+      //should have another function that resets all state to normal
+      // dispatch(resetDamage());
+      // dispatch(resetEnemyDamage());
+      dispatch(afterBattle());
+      //gainExp(player, currentUser.email);
+    }
+  }, [enemy.health])
+
+
   dispatch((modify()));
   //should i put this inside enemy?
   if(enemy.health <= 0) {
@@ -137,7 +149,7 @@ const Level = (props) => {
     //should have another function that resets all state to normal
     dispatch(resetDamage());
     dispatch(resetEnemyDamage());
-    dispatch(afterBattle());
+    dispatch(afterBattle(enemy.exp));
     //gainExp(player, currentUser.email);
 
     return (

@@ -75,7 +75,7 @@ const Adventure = (props) => {
       <Navigation>
         {clicked && <Link to = '/adventure' onClick = {handleClick} >Back</Link>}
         {!clicked && <Link to = '/levelone' onClick = {handleClick}>Level One</Link>}
-        {!clicked && <Link to = '/levelone' onClick = {handleClick}>Level Two</Link>}
+        {/* {!clicked && <Link to = '/levelone' onClick = {handleClick}>Level Two</Link>} */}
       </Navigation>
       <Switch>
         <Route path='/levelone' render = {(props) => <Level {...props} stats = {boss}/> } />

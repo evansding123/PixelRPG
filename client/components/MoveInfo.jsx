@@ -34,7 +34,7 @@ const MoveInfo =(props) => {
 
   // const [damage, setDamage] = useState(-1);
 
-  const {name, mana_cost, power, color, id_individual_character} = props.info;
+  //const {name, mana_cost, power, color, id_individual_character} = props.info;
 
   const mode = useSelector((state) => state.mode.value);
   const initalState = useSelector((state) => state.battle.enemy);
@@ -48,7 +48,7 @@ const MoveInfo =(props) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    console.log('battle click');
+    //console.log('battle click');
     //pass something into my reducer function
 
     dispatch(resetEnemyDamage());
@@ -77,11 +77,12 @@ const MoveInfo =(props) => {
     return (
       <>
       <MoveSets color = {props.color}>
-        {mode !== 'battle' && <InfoButton>{name}</InfoButton>}
-        {mode === 'battle' && player[props.index].status && <InfoButton onClick = {handleClick}>{name}</InfoButton>}
-        {mode === 'battle' && !player[props.index].status && <InactiveButton>{name}</InactiveButton>}
+        <InfoButton onClick = {handleClick}>{name}</InfoButton>}
+        {/* {mode !== 'battle' && <InfoButton>{name}</InfoButton>}
+        {mode === 'battle' && player[props.index].status && <InfoButton onClick = {handleClick}>{name}</InfoButton>} */}
+        {/* {mode === 'battle' && !player[props.index].status && <InactiveButton>{name}</InactiveButton>}
         <MoveModal>cost: {mana_cost}</MoveModal>
-        <MoveModal>power: {power}</MoveModal>
+        <MoveModal>power: {power}</MoveModal> */}
       </MoveSets>
       {/* {!player[props.index].status && damage > 0 && <div>{`YOU DEALT ${damage} DAMAGE`}</div>} */}
       </>
