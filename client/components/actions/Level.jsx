@@ -134,8 +134,8 @@ const Level = (props) => {
     if(enemy.health <= 0) {
       //later on, i can add something that adds exp and sends a request to save data
       //should have another function that resets all state to normal
-      // dispatch(resetDamage());
-      // dispatch(resetEnemyDamage());
+      dispatch(resetDamage());
+      dispatch(resetEnemyDamage());
       dispatch(afterBattle());
       //gainExp(player, currentUser.email);
     }
@@ -145,12 +145,6 @@ const Level = (props) => {
   dispatch((modify()));
   //should i put this inside enemy?
   if(enemy.health <= 0) {
-    //later on, i can add something that adds exp and sends a request to save data
-    //should have another function that resets all state to normal
-    dispatch(resetDamage());
-    dispatch(resetEnemyDamage());
-    dispatch(afterBattle(enemy.exp));
-    //gainExp(player, currentUser.email);
 
     return (
       <LevelStructure>
