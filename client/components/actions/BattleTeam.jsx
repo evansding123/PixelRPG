@@ -36,7 +36,8 @@ const Name = styled.div`
 
 const BattleTeam = (props) => {
 
-  const { character } = props;
+  // const { character } = props;
+  const player = useSelector((state) => state.battle.player);
   const { currentUser } = useAuth();
 
 
@@ -67,16 +68,16 @@ const BattleTeam = (props) => {
 
 
 
-  if(character.length !== 0) {
+  if(player.length !== 0) {
     return(
       <Members>
-        {character.map((item, index) => {
+        {player.map((item, index) => {
 
           return(
                 <Member key = {index}>
                   <IndividualCharacter values = {item} key = {item}/>
                   <Name key = {item.name}>{item.name}</Name>
-                  <DescriptionBox values = {item} index = {index} key = {item.id}/>
+                  <DescriptionBox values = {item} index = {index}/>
                 </Member>
           );
 

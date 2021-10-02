@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import {InfoButton} from '../styles/styles.jsx'
 import MoveInfo from './MoveInfo.jsx';
+import { useSelector, useDispatch } from 'react-redux'
 
 const Stats = styled.div`
   display: flex;
@@ -58,7 +59,13 @@ const DescriptionBox = (props) => {
 
   const [clicked, setClick] = useState(false);
 
-  const {name, health, range, attack, defense, speed, initial, moveSet, color, mana, exp, level, id} = props.values;
+  const player = useSelector((state) => state.battle.player);
+
+  // const {name, health, range, attack, defense, speed, initial, moveSet, color, mana, exp, level, id} = props.values;
+
+  const {name, health, range, attack, defense, speed, initial, moveSet, color, mana, exp, level, id} = player[props.index];
+
+
 
   const handleClick = ()=> {
     setClick(!clicked);
@@ -88,7 +95,7 @@ const DescriptionBox = (props) => {
          return (
            <Move key = {index}>
              {/* <div>{item.name}</div> */}
-             {<MoveInfo color = {color} info = {item} moveIndex = {index} character = {props.index} key = {item.id} />}
+             {<MoveInfo moveIndex = {index} character = {props.index} />}
            </Move>
          )
        })}
