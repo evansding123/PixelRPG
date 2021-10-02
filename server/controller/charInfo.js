@@ -43,14 +43,16 @@ module.exports = {
 
 
   editCharInfo : async (req, res) => {
-    try {
-      let array = [];
-      for(keys in req.query) {
-        array.push(req.query[keys]);
-      }
-      console.log(req.query);
 
-      const queryData = await models.getCharInfo(array);
+    //console.log(req);
+    try {
+      // let array = [];
+      // for(const element of req.body) {
+      //   array.push(req.query[keys]);
+      // }
+      console.log(req.body);
+
+      const queryData = await models.editCharInfo(req.body);
       res.status(200).send(queryData);
 
     } catch(error) {

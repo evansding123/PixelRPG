@@ -137,7 +137,7 @@ const Level = (props) => {
       dispatch(resetDamage());
       dispatch(resetEnemyDamage());
       dispatch(afterBattle());
-      //gainExp(player, currentUser.email);
+      gainExp(player, currentUser.email);
     }
   }, [enemy.health])
 

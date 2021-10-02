@@ -4,7 +4,7 @@ const router = require('express').Router();
 
 router.post('/characters', controller.charInfo.postCharInfo);
 router.get('/teams', controller.charInfo.getCharInfo);
-router.get('/updateTeam', controller.charInfo.editCharInfo);
+router.all('/updateTeam', controller.charInfo.editCharInfo);
 router.post('/account', controller.accountInfo.postAccount);
 
 

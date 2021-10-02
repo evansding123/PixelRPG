@@ -103,7 +103,7 @@ module.exports = {
 
   editCharInfo : async(values = []) => {
 
-    console.log(values);
+    console.log('values in model', values);
   }
 
 
