@@ -50,9 +50,9 @@ module.exports = {
       // for(const element of req.body) {
       //   array.push(req.query[keys]);
       // }
-      console.log(req.body);
+      //console.log(req.body[1]);
 
-      const queryData = await models.editCharInfo(req.body);
+      const queryData = await models.editCharInfo(req.body[0], req.body[1]);
       res.status(200).send(queryData);
 
     } catch(error) {

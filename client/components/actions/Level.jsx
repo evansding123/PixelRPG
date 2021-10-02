@@ -137,7 +137,7 @@ const Level = (props) => {
       dispatch(resetDamage());
       dispatch(resetEnemyDamage());
       dispatch(afterBattle());
-      gainExp(player, currentUser.email);
+
     }
   }, [enemy.health])
 
@@ -145,6 +145,8 @@ const Level = (props) => {
   dispatch((modify()));
   //should i put this inside enemy?
   if(enemy.health <= 0) {
+
+    gainExp(player, currentUser.email);
 
     return (
       <LevelStructure>

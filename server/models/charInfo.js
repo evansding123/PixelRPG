@@ -101,10 +101,39 @@ module.exports = {
 
   },
 
-  editCharInfo : async(values = []) => {
+  editCharInfo : async(username, values = []) => {
+   console.log(values);
 
-    console.log('values in model', values);
-  }
+
+
+    try {
+      const query = `SELECT id FROM individual_character WHERE id_Account = (SELECT id from Account WHERE username = 'bleh@something.com');`;
+
+      const res = await pool.query(query);
+
+      for(let i = 0; i < res.rows.length; i++) {
+        //console.log(values[i].exp,res.rows[i])
+        const query2 =
+        `UPDATE individual_character
+        SET exp =  ${values[i].exp},
+            level = ${values[i].level}
+        WHERE id = ${res.rows[i].id};`;
+
+        const res2 = await pool.query(query2);
+
+      }
+      return res;
+      // console.log('values in model', values);
+
+    } catch(error) {
+      console.log(error);
+      throw(error);
+    }
+
+
+    }
+
+
 
 
 }
