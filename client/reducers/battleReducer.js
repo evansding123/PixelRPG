@@ -5,6 +5,7 @@ export const battleReducer = createSlice({
   initialState: {
     enemy: {},
     player: [],
+    initialPlayerStats: [],
     count: 0,
     damage: 0,
     enemyDamage: 0,
@@ -25,6 +26,10 @@ export const battleReducer = createSlice({
       for(var i = 0; i < state.player.length; i++) {
         state.player[i].status = true;
       }
+
+      //need to save initial stats in case of level up
+      state.initialPlayerStats = action.payload;
+
     },
 
     attack: (state, action) => {
@@ -47,6 +52,7 @@ export const battleReducer = createSlice({
 
       if(state.count >= state.player.length) {
         //state.damage = 0;
+        state.count = 0;
         state.enemy.status = true;
       }
 
@@ -106,19 +112,25 @@ export const battleReducer = createSlice({
     afterBattle: (state, action) => {
 
       //console.log(state.player[0].exp++);
-
-
+      //set the count to zero for the player in case we have to fight the battle again
+      state.count = 0;
       for(var i = 0; i < state.player.length; i++) {
 
-        // let number = state.player[i].exp;
-        // number += Math.ceil(state.enemy.exp / state.player.length);
-
+       //recover health
+        state.player[i].health = state.initialPlayerStats[i].health;
+        state.player[i].mana = state.initialPlayerStats[i].mana;
 
         state.player[i].exp += Math.ceil(state.enemy.exp / state.player.length);
-        if(state.player[i].exp > 10) {
+        if(state.player[i].exp > 2) {
           //placeholder exp cap of 10
+
           state.player[i].level++;
           state.player[i].exp = 0;
+          state.player[i].health++;
+          state.player[i].attack++;
+          state.player[i].defense++;
+
+
         }
       }
 

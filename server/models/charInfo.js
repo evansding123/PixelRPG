@@ -116,7 +116,10 @@ module.exports = {
         const query2 =
         `UPDATE individual_character
         SET exp =  ${values[i].exp},
-            level = ${values[i].level}
+            level = ${values[i].level},
+            health = ${values[i].health},
+            attack = ${values[i].attack},
+            defense = ${values[i].defense},
         WHERE id = ${res.rows[i].id};`;
 
         const res2 = await pool.query(query2);
