@@ -31,9 +31,7 @@ const Enemy = (props) => {
   useEffect(() => {
 
     if(enemy.status === true) {
-      // dispatch(defend({
-      //   power: attack,
-      // }))
+     
 
       setTimeout(function() {
         dispatch(resetDamage());
@@ -47,15 +45,6 @@ const Enemy = (props) => {
     }
 
   }, [enemy.status])
-
-
-  //might not need this part?
-
-  // if(enemy.status === false) {
-  //   setTimeout(function() {
-  //     dispatch(resetEnemyDamage());
-  //   }, 2000)
-  // }
 
 
 

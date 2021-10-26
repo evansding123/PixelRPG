@@ -121,7 +121,7 @@ export const battleReducer = createSlice({
         state.player[i].mana = state.initialPlayerStats[i].mana;
 
         state.player[i].exp += Math.ceil(state.enemy.exp / state.player.length);
-        if(state.player[i].exp > 2) {
+        if(state.player[i].exp > 10) {
           //placeholder exp cap of 10
 
           state.player[i].level++;

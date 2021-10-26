@@ -134,6 +134,8 @@ const Level = (props) => {
     if(enemy.health <= 0) {
       //later on, i can add something that adds exp and sends a request to save data
       //should have another function that resets all state to normal
+
+      //cleanup
       dispatch(resetDamage());
       dispatch(resetEnemyDamage());
       dispatch(afterBattle());
