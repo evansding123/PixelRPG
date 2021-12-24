@@ -79,10 +79,11 @@ const IndividualCharacter = (props) => {
           attack: attack,
           defense: defense,
           speed: speed,
-          intial: false,
+          initial: false,
           color: color,
           username: currentUser.email, //replace with actual username later
           moveSet: moveSet,
+
         })
         console.log(response);
       } catch(error) {

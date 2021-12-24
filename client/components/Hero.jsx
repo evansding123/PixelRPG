@@ -60,7 +60,9 @@ const Hero = (props) => {
               power: 2,
               cost: 2,
             },
-          ]
+
+          ],
+          status: true,
         }}
 
       />,
@@ -90,7 +92,8 @@ const Hero = (props) => {
               power: 2,
               cost: 2,
             },
-          ]
+          ],
+          status: true,
         }}
 
       />,
@@ -120,7 +123,8 @@ const Hero = (props) => {
               power: 2,
               cost: 2,
             },
-          ]
+          ],
+          status: true,
       }}
 
       />,
@@ -150,7 +154,8 @@ const Hero = (props) => {
               power: 2,
               cost: 2,
             },
-          ]
+          ],
+          status: true,
       }}
 
 
@@ -160,7 +165,7 @@ const Hero = (props) => {
           level : 1,
           exp : 0,
           mana : 5,
-          health : 10,
+          health : 17,
           picture : cyclops,
           name : 'Cyclops',
           index : 1,
@@ -181,12 +186,8 @@ const Hero = (props) => {
               power: 2,
               cost: 2,
             },
-            {
-              moveName: 'laser eye',
-              power: 3,
-              cost: 3,
-            }
-          ]
+          ],
+          status: true,
       }}
       />,
     6: <IndividualCharacter
@@ -199,7 +200,7 @@ const Hero = (props) => {
           name : 'Mysterious Man',
           index : 1,
           range  : 1,
-          attack : 5,
+          attack : 8,
           defense : 5,
           speed : 10,
           color : '#7F00FF80',
@@ -215,7 +216,13 @@ const Hero = (props) => {
               power: 2,
               cost: 2,
             },
-          ]
+            {
+              moveName: 'assassinate',
+              power: 7,
+              cost: 3,
+            }
+          ],
+          status: true,
       }}
       />,
     7: <IndividualCharacter
@@ -244,7 +251,8 @@ const Hero = (props) => {
               power: 2,
               cost: 2,
             },
-          ]
+          ],
+          status: true,
         }}
       />,
     8: <IndividualCharacter
@@ -273,7 +281,8 @@ const Hero = (props) => {
               power: 2,
               cost: 2,
             },
-          ]
+          ],
+          status: true,
         }}
     />,
   }

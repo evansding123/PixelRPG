@@ -65,6 +65,7 @@ const MoveInfo =(props) => {
 
   }
 
+
   // if(!player[props.index].status) {
   //   //this is basically wnen player attack
   //   dispatch();
@@ -90,12 +91,13 @@ const MoveInfo =(props) => {
         <MoveModal>cost: {mana_cost}</MoveModal>
         <MoveModal>power: {power}</MoveModal>
       </MoveSets>
-      {!player[props.index].status && damage > 0 && <div>{`YOU DEALT ${damage} DAMAGE`}</div>}
+      {(player[props.index] !== undefined && !player[props.index].status) && damage > 0 && <div>{`YOU DEALT ${damage} DAMAGE`}</div>}
       </>
     )
+  }
 
 
-}
+
 
 
 

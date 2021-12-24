@@ -23,7 +23,8 @@ module.exports = {
       const query = `SELECT id from individual_character WHERE name = '${name}'`;
       const id = await pool.query(query);
 
-
+      id.rows.sort((a, b) => a.id - b.id);
+      console.log(id.rows);
 
       for(var i = 0; i < moves.length; i++) {
         const {moveName, power, cost} = moves[i];
@@ -31,6 +32,8 @@ module.exports = {
         VALUES (${id.rows[id.rows.length - 1].id}, '${moveName}', null, ${power}, ${cost});`;
 
         const res = await pool.query(query2);
+
+
         //return res;
       }
 
@@ -87,7 +90,10 @@ module.exports = {
         //console.log(res2.rows);
         // let obj = {};
         // obj.moves = res2.rows;
+        //console.log( res2.rows );
         res.rows[i].moveSet = res2.rows;
+        //console.log(res.rows[i]);
+        //console.log(res.rows[i].moveSet);
         //add the moves into the character object
 
       }
@@ -107,7 +113,7 @@ module.exports = {
 
 
     try {
-      const query = `SELECT id FROM individual_character WHERE id_Account = (SELECT id from Account WHERE username = 'bleh@something.com');`;
+      const query = `SELECT id FROM individual_character WHERE id_Account = (SELECT id from Account WHERE username = 'sdasdas@something.com');`;
 
       const res = await pool.query(query);
       console.log('this is called twice', res.rows);

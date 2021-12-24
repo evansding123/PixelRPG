@@ -44,7 +44,7 @@ const Team = (props) => {
   const [character, addChar] = useState([]);
   const { currentUser } = useAuth();
 
-  const player = useSelector((state) => state.battle.player);
+
 
   //send a get request to database for current team. depending on username too?
   useEffect(() => {
@@ -56,7 +56,7 @@ const Team = (props) => {
             username: currentUser.email
           }
         });
-        console.log(response);
+        console.log(response.data.rows);
 
         addChar(response.data.rows);
         dispatch(initializeTeam(response.data.rows));
@@ -72,15 +72,17 @@ const Team = (props) => {
 
   }, [])
 
+  const player = useSelector((state) => state.battle.player);
+
   let descriptionArray = [];
 
   if(character.length !== 0) {
     return(
       <Members>
         {character.map((item, index) => {
-          item.width = '50px';
-          item.height = '50px';
-          item.margin = '5%';
+          // item.width = '50px';
+          // item.height = '50px';
+          // item.margin = '5%';
           return(
 
                 <Member>

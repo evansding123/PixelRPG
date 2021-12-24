@@ -30,7 +30,7 @@ module.exports = {
       for(keys in req.query) {
         array.push(req.query[keys]);
       }
-      console.log('this is controller', req.query);
+      console.log('this is controller', req.query, array);
 
       const queryData = await models.getCharInfo(array);
       res.status(200).send(queryData);
