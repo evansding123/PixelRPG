@@ -38,7 +38,7 @@ const MoveInfo =(props) => {
 
   const mode = useSelector((state) => state.mode.value);
   const initalState = useSelector((state) => state.battle.enemy);
-  const player = useSelector((state) => state.battle.player);
+  const player = useSelector((state) => state.battle.player)|| [];
 
 
 
@@ -70,6 +70,13 @@ const MoveInfo =(props) => {
   //   dispatch();
 
   //   //sets redux damage to an amount, where level can access the change in redux damaage?
+  // }
+
+
+  // if(player[props.index].status !== undefined && !player[props.index].status) {
+  //   let log = <div>{`YOU DEALT ${damage} DAMAGE`}</div>
+  // } else {
+  //   log = <div></div>
   // }
 
 

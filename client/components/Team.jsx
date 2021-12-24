@@ -3,6 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux'
 import { changeMode } from '../reducers/modeChange'
+import { initializeTeam } from '../reducers/battleReducer'
 
 import loading from '../pictures/loading.gif';
 
@@ -43,6 +44,8 @@ const Team = (props) => {
   const [character, addChar] = useState([]);
   const { currentUser } = useAuth();
 
+  const player = useSelector((state) => state.battle.player);
+
   //send a get request to database for current team. depending on username too?
   useEffect(() => {
 
@@ -56,6 +59,7 @@ const Team = (props) => {
         console.log(response);
 
         addChar(response.data.rows);
+        dispatch(initializeTeam(response.data.rows));
       } catch (error) {
         console.log(error)
       }
@@ -84,6 +88,8 @@ const Team = (props) => {
                   <Name>{item.name}</Name>
                   <DescriptionBox values = {item} index = {index}/>
                 </Member>
+
+                //moveinfo is inside descriptionbox
 
 
           );
