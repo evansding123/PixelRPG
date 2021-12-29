@@ -113,7 +113,7 @@ module.exports = {
 
 
     try {
-      const query = `SELECT id FROM individual_character WHERE id_Account = (SELECT id from Account WHERE username = 'sdasdas@something.com');`;
+      const query = `SELECT id FROM individual_character WHERE id_Account = (SELECT id from Account WHERE username = '${username}');`;
 
       const res = await pool.query(query);
       console.log('this is called twice', res.rows);

@@ -113,6 +113,8 @@ export const battleReducer = createSlice({
 
       //console.log(state.player[0].exp++);
       //set the count to zero for the player in case we have to fight the battle again
+
+      //console.log('after battle')
       state.count = 0;
       for(var i = 0; i < state.player.length; i++) {
 

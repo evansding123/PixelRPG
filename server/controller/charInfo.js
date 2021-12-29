@@ -44,7 +44,7 @@ module.exports = {
 
   editCharInfo : async (req, res) => {
 
-    //console.log(req);
+    console.log(req.body);
     try {
       // let array = [];
       // for(const element of req.body) {
