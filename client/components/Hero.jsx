@@ -186,6 +186,11 @@ const Hero = (props) => {
               power: 2,
               cost: 2,
             },
+            {
+              moveName: 'laser eyes',
+              power: 7,
+              cost: 5,
+            },
           ],
           status: true,
       }}
