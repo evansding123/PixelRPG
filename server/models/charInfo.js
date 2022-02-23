@@ -18,7 +18,7 @@ module.exports = {
 
   postMoves: async (moves, name) => {
     console.log('moves in model', moves);
-
+    //need to sort the moves
     try {
       const query = `SELECT id from individual_character WHERE name = '${name}'`;
       const id = await pool.query(query);
