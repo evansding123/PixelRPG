@@ -19,7 +19,11 @@ module.exports = {
   postMoves: async (moves, name) => {
     console.log('moves in model', moves);
     //need to sort the moves to get the most recent one added
-    //need to look at this later and see exactly how ti works
+
+
+    //this is just initializing troops and persisting the moveset to start out
+
+    //name is name of user - need to change variable name maybe
     try {
       const query = `SELECT id from individual_character WHERE name = '${name}'`;
       const id = await pool.query(query);
