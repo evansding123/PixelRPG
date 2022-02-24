@@ -18,7 +18,8 @@ module.exports = {
 
   postMoves: async (moves, name) => {
     console.log('moves in model', moves);
-    //need to sort the moves
+    //need to sort the moves to get the most recent one added
+    //need to look at this later and see exactly how ti works
     try {
       const query = `SELECT id from individual_character WHERE name = '${name}'`;
       const id = await pool.query(query);
